@@ -5,6 +5,7 @@
  */
 package Logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -14,10 +15,10 @@ import javax.persistence.*;
  */
 
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Persona {
+public class Persona  {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    
     private int id_persona;
     
     @Basic

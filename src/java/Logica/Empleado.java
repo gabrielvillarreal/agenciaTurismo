@@ -15,7 +15,8 @@ import javax.persistence.*;
  * @author villa
  */
 @Entity
-public class Empleado extends Persona implements Serializable{
+public class Empleado extends Persona {
+    
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,19 +31,9 @@ public class Empleado extends Persona implements Serializable{
     
     @OneToMany
     private List<Venta> listaVentas;
-    
-    
-    public Empleado() {
-    }
 
-    public Empleado(int id_empleado, String cargo, double sueldo, int id_persona, String nombre, String apellido, String direccion, String dni, String nacionalidad, String celular, String email, Date fecha_nac) {
-        super(id_persona, nombre, apellido, direccion, dni, nacionalidad, celular, email, fecha_nac);
-        this.id_empleado = id_empleado;
-        this.cargo = cargo;
-        this.sueldo = sueldo;
-    }
-
-    public Empleado(int id_empleado, String cargo, double sueldo, Usuario usuario, List<Venta> listaVentas, int id_persona, String nombre, String apellido, String direccion, String dni, String nacionalidad, String celular, String email, Date fecha_nac) {
+    public Empleado(int id_empleado, String cargo, double sueldo, Usuario usuario, List<Venta> listaVentas, int id_persona, String nombre, 
+            String apellido, String direccion, String dni, String nacionalidad, String celular, String email, Date fecha_nac) {
         super(id_persona, nombre, apellido, direccion, dni, nacionalidad, celular, email, fecha_nac);
         this.id_empleado = id_empleado;
         this.cargo = cargo;
@@ -59,16 +50,30 @@ public class Empleado extends Persona implements Serializable{
         this.listaVentas = listaVentas;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Empleado{id_empleado=").append(id_empleado);
-        sb.append(", cargo=").append(cargo);
-        sb.append(", sueldo=").append(sueldo);
-        sb.append(", usuario=").append(usuario);
-        sb.append(", listaVentas=").append(listaVentas);
-        sb.append('}');
-        return sb.toString();
+    public Empleado(int id_empleado, String cargo, double sueldo, int id_persona, String nombre, String apellido, String direccion, String dni, String nacionalidad, String celular, String email, Date fecha_nac) {
+        super(id_persona, nombre, apellido, direccion, dni, nacionalidad, celular, email, fecha_nac);
+        this.id_empleado = id_empleado;
+        this.cargo = cargo;
+        this.sueldo = sueldo;
+        
+    }
+
+    public Empleado(String cargo, double sueldo, Usuario usuario, List<Venta> listaVentas, int id_persona, String nombre, String apellido, String direccion, String dni, String nacionalidad, String celular, String email, Date fecha_nac) {
+        super(id_persona, nombre, apellido, direccion, dni, nacionalidad, celular, email, fecha_nac);
+        this.cargo = cargo;
+        this.sueldo = sueldo;
+        this.usuario = usuario;
+        this.listaVentas = listaVentas;
+    }
+
+    public Empleado(String cargo, double sueldo, Usuario usuario, List<Venta> listaVentas) {
+        this.cargo = cargo;
+        this.sueldo = sueldo;
+        this.usuario = usuario;
+        this.listaVentas = listaVentas;
+    }
+
+    public Empleado() {
     }
 
     public int getId_empleado() {
@@ -110,6 +115,19 @@ public class Empleado extends Persona implements Serializable{
     public void setListaVentas(List<Venta> listaVentas) {
         this.listaVentas = listaVentas;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Empleado{id_empleado=").append(id_empleado);
+        sb.append(", cargo=").append(cargo);
+        sb.append(", sueldo=").append(sueldo);
+        sb.append(", usuario=").append(usuario);
+        sb.append(", listaVentas=").append(listaVentas);
+        sb.append('}');
+        return sb.toString();
+    }
+    
     
 
     
