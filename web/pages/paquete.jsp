@@ -196,7 +196,7 @@
                                 String costo =  String.valueOf(serv.getCosto_servicio());
                                 int id = serv.getCodigo_servicio();%>
                                 
-                              <option id="opServicio" name="<%=id%>"><%=nombre + " : " + descripcion  %></option>
+                              <option id="<%=id%>" name="<%=costo%>"><%=nombre + " : " + descripcion  %></option>
 
                             <%}%>
                             </select>
@@ -205,39 +205,22 @@
                         </div>
                       </form>
                        
-                            <div class="mdc-data-table">
-                                <div class="mdc-data-table__table-container" >
-                                    <table id="transactionTable" class="mdc-data-table__table" aria-label="Dessert calories">
-                                        <thead>
-                                            <tr class="mdc-data-table__header-row">
-                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">tipo</th>
-                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Descripcion</th>
-                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">costo</th>
+                            
+                                <div >
+                                    <table id="transactionTable" class="table table-hover">
+                                     
+                                            <tr>
+                                                <th scope="col">Codigo</th>
+                                                <th scope="col">tipo</th>
+                                                <th scope="col">Descripcion</th>
+                                                <th scope="col">costo</th>
+                                                <th scope="col">Eliminar</th>
                                             </tr>
-                                        </thead>
-                                        <tbody class="mdc-data-table__content">
-                                            <tr class="mdc-data-table__row">
-                                              <th class="mdc-data-table__cell" scope="row">Frozen yogurt</th>
-                                              <td class="mdc-data-table__cell mdc-data-table__cell--numeric">24</td>
-                                              <td class="mdc-data-table__cell mdc-data-table__cell--numeric">4.0</td>
-                                              <td class="mdc-data-table__cell">Super tasty</td>
-                                            </tr>
-                                            <tr class="mdc-data-table__row">
-                                              <th class="mdc-data-table__cell" scope="row">Ice cream sandwich</th>
-                                              <td class="mdc-data-table__cell mdc-data-table__cell--numeric">37</td>
-                                              <td class="mdc-data-table__cell mdc-data-table__cell--numeric">4.33333333333</td>
-                                              <td class="mdc-data-table__cell">I like ice cream more</td>
-                                            </tr>
-                                            <tr class="mdc-data-table__row">
-                                              <th class="mdc-data-table__cell" scope="row">Eclair</th>
-                                              <td class="mdc-data-table__cell mdc-data-table__cell--numeric">24</td>
-                                              <td class="mdc-data-table__cell mdc-data-table__cell--numeric">6.0</td>
-                                              <td class="mdc-data-table__cell">New filing flavor</td>
-                                            </tr>
-                                          </tbody>
+                                            
+                                        
                                     </table>
                                 </div>
-                            </div>
+                            
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label">Descripción</label>
                       <input type="text" name="descripcion" class="form-control">
@@ -391,10 +374,32 @@
           let newTransactionRowRef= transactionTableRef.insertRow(-1);
           
           let newTypeCellRef = newTransactionRowRef.insertCell(0);
-          newTypeCellRef.textContent = document.getElementById("servicio").value;
-          var selectedOption = this.options[select.selectedIndex];
+          newTypeCellRef.textContent = document.getElementById("servicio").selectedOptions[0].attributes.id.value;
+          const texto = document.getElementById("servicio").value;
+          const datos = texto.split(':');
           
-          newTypeCellRef.textContent = selectedOption.text;
+          
+          newTypeCellRef = newTransactionRowRef.insertCell(1);
+          newTypeCellRef.textContent = datos[0];
+          //newTypeCellRef.textContent = document.getElementById("servicio").selectedOptions[0].attributes.id.value;
+            
+        
+          //newTypeCellRef.textContent = document.getElementById("servicio").selectedOptions[0].attributes.id.value;
+          
+          newTypeCellRef = newTransactionRowRef.insertCell(2);
+          newTypeCellRef.textContent = datos[1];
+          newTypeCellRef = newTransactionRowRef.insertCell(3);
+          newTypeCellRef.textContent = document.getElementById("servicio").selectedOptions[0].attributes.name.value;
+          
+          
+          let newDeleteCell = newTransactionRowRef.insertCell(4);
+          let deleteButton = document.createElement("button");
+          deleteButton.textContent = "Eliminar";
+          newDeleteCell.appendChild (deleteButton);
+          deleteButton.addEventListener("click", (event) =>{
+              event.target.parentNode.parentNode.remove();
+          })
+          
       }
       
   </script>
