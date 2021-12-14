@@ -267,7 +267,7 @@
               </div>
             </div>
               <div class="card-body">
-                  <div action="../SvPaquete" method="POST">
+                  <div >
                       
                       <form action="agregarServicio" id="formularioServicio">
                           
@@ -293,48 +293,54 @@
                                 <%}%>
                                 </select>
                             </div>
-                                <div class="col-3 col-md-3">
+                                <div class="col-3 col-md-3" >
                                 <button type="submit" class="btn btn-success ">Agregar Servicio</button>
                             </div>
                         </div>
                       </form>
-                       
-                            
+                               <form name="agregarPaquete" action="../SvPaquete" method="post" style="display:inline" class="text-center">  
                                 <div >
                                     <table id="transactionTable" class="table table-hover">
                                         <thead>
-                                            <tr>
+                                            <tr class="encabezado">
                                                 <th scope="col">Codigo</th>
                                                 <th scope="col">tipo</th>
                                                 <th scope="col">Descripcion</th>
-                                                <th scope="col">costo</th>
+                                                <th scope="col">Costo</th>
                                                 <th scope="col">Eliminar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr style="display:none">
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>0</td>
                                                 <td></td>
                                             </tr>
+                                            
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td>Total</td>
-                                            </tr>
-                                        </tfoot>
+                                        
+                                        
                                             
                                         
                                     </table>
+                                    <div>
+                                        
+                                        <input type="text" id="totalServicios" name="totalServicios" class="form-control">
+                                        <h3 class="float-right" >Total: </h3>
+                                    </div>
+                                    
+                                    <input type="text" id="idServicio" name="idServicio" class="form-control">
+                                    
                                 </div>
-                            
-                                <div>
-                                    <label>Suma Total</label>
-                                    <label id="total"> </label>
-                                </div>
+                                <br>
                                 
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Aceptar</button>
-                    </div>
+                      <button type="submit" class="btn btn-primary ">Aceptar</button>
                   </form>
+                    
+                  </form>
+                 
                 </div>
             
           </div>
@@ -417,7 +423,7 @@
           newTypeCellRef.textContent = document.getElementById("servicio").selectedOptions[0].attributes.name.value;
          
         
-       calcularTotal();
+       
         
         
           
@@ -430,22 +436,41 @@
           newDeleteCell.appendChild (deleteButton);
           deleteButton.addEventListener("click", (event) =>{
               event.target.parentNode.parentNode.remove();
+              calcularTotal();
               
-          })
+              
+          });
+          calcularTotal();
+        
           
       }
-      
-      function calcularTotal(){
-          const filas = document.querySelectorAll("#transactionTable tbody tr");
-          const columnas = document.querySelectorAll("#transactionTable tr th");
-          const totalFila = document.querySelectorAll("#transactionTable tfoot tr td");
-          for(let i=1;i<columnas.length;i++){
-              let total=0;
-              filas.forEach((fila)=>{
-                  total+= parseFloat(fila.querySelectorAll("td")[i].innerHTML);
-              });
-              totalFila[i].innerHTML = total.toFixed(2);
-          }
+     
+      function calcularTotal(borrar){
+          //Ejecuto la función al cargar la página
+        $(document).ready(function()
+        {
+          //Defino los totales de mis 2 columnas en 0
+          var total_col1 = 0;
+          const idServicio = [];
+          
+          //Recorro todos los tr ubicados en el tbody
+          $('#transactionTable tbody') .find('tr').each(function (i, el) {
+
+                //Voy incrementando las variables segun la fila ( .eq(0) representa la fila 1 )     
+                total_col1 += parseFloat($(this).find('td').eq(3).text());
+                idServicio.push(parseInt($(this).find('td').eq(0).text()));
+                
+
+            });
+            idServicio.shift();
+            //le aplico el 10% de descuento
+            total_col1 = total_col1 - ((total_col1*10)/100);
+            //Muestro el resultado en el th correspondiente a la columna
+            $('#totalServicios').valueOf(total_col1);
+            $('#idServicio').text(idServicio);
+            
+
+        });
       }
       
   </script>

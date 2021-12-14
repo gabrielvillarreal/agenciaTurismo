@@ -46,7 +46,7 @@
     <link href="../css/theme.css" rel="stylesheet" media="all">
 
 </head>
-<body class="animsition">
+<body class="">
     <div class="page-wrapper">
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar2">
@@ -261,7 +261,7 @@
             </div>
                <div>
                   <br>
-                  <a type="button" class="btn btn-primary align-self-end float-right" href="./servicio.jsp">Agregar Servicio</a>
+                  <a type="button" class="btn btn-primary float-right mr-5" href="./servicio.jsp">Agregar Servicio</a>
               </div>
               <div class="main-content">
                   <div class="table-responsive table--no-card m-b-30">
@@ -281,9 +281,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            
                                         <% Controladora control = new Controladora();
-                        
+                                        
                                         List <Servicio> listaServicio = control.traerServicios();
+                                        
+                                        
                                         for (Servicio serv : listaServicio) {
 
                                             String nombre = serv.getNombre(); 
@@ -300,7 +303,7 @@
                                                 <td><%=destino%></td>
                                                 <td><%=fechaCorta.format(fecha)%></td>
                                                 <td><%=costo%></td>
-                                                <input type="hidden" name="id" value="<%=id%>" >
+                                                <input type="hidden" id="<%=id%>" name="id" value="<%=id%>" >
                                                 <td>
                                                     <div class="table-data-feature section__content">
                                                         <form name="frmBorrarServicio" action="../SvEliminarServicio" method="POST" style="display:inline">
@@ -316,7 +319,9 @@
                                                     
                                                 </td>
                                             </tr>
-                                            <%}%>
+                                            <%}
+                                            
+                                            %>
                                         </tbody>
                                     </table>
                                     </div>

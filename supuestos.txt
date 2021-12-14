@@ -1,3 +1,8 @@
 Supuestos:
 
 * Las ventas solo permitiran un solo medio de pago
+* para agregar servicios en paquetes, tienen que tener cargados los servicios
+* los campos no estan validados
+
+oooooooo
+RdLuna!2

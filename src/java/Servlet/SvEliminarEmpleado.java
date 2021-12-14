@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author villa
  */
-@WebServlet(name = "ServletEmpleados", urlPatterns = {"/ServletEmpleados"})
-public class ServletEmpleados extends HttpServlet {
+@WebServlet(name = "SvEliminarEmpleado", urlPatterns = {"/SvEliminarEmpleado"})
+public class SvEliminarEmpleado extends HttpServlet {
 
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -36,26 +36,7 @@ public class ServletEmpleados extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        int id= Integer.parseInt(request.getParameter("id"));
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String email = request.getParameter("email");
-        String cargo = request.getParameter("cargo");
-        double sueldo = Double.parseDouble(request.getParameter("sueldo"));
-       
-        
-        Controladora control = new Controladora();
-        Empleado empleado = control.buscarEmpleados(id);
-        empleado.setApellido(apellido);
-        empleado.setNombre(nombre);
-        empleado.setEmail(email);
-        empleado.setCargo(cargo);
-        empleado.setSueldo(sueldo);
-        
-        
-        
-        request.getSession().setAttribute("listaEmpleados", control.traerEmpleados());
-        response.sendRedirect("listadoEmpleados.jsp");
+      
     }
 
    
@@ -64,6 +45,12 @@ public class ServletEmpleados extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
+         int id = Integer.parseInt(request.getParameter("id"));
+        Controladora control = new Controladora();
+        
+        control.borrarEmpleado(id);
+        
+        response.sendRedirect("./pages/listadoEmpleados.jsp");
         
     }
 

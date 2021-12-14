@@ -18,34 +18,33 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author villa
  */
-@WebServlet(name = "ServletPrueba", urlPatterns = {"/ServletPrueba"})
-public class ServletPrueba extends HttpServlet {
+@WebServlet(name = "SvEliminarCliente", urlPatterns = {"/SvEliminarCliente"})
+public class SvEliminarCliente extends HttpServlet {
 
-   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+        
+    }
+
+   
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     
-   
-
-   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
         
+        int id = Integer.parseInt(request.getParameter("id"));
         Controladora control = new Controladora();
-     
-        control.crearEmpleado();
+        
+        control.borrarCliente(id);
+        
+        response.sendRedirect("./pages/listadoClientes.jsp");
     }
-
-    
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

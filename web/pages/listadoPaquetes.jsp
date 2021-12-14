@@ -255,7 +255,7 @@
             </div>
               <div>
                   <br>
-                  <a type="button" class="btn btn-primary align-self-end float-right" href="./paquete.jsp">Agregar Paquete Turistico</a>
+                  <a type="button" class="btn btn-primary float-right mr-5" href="./paquete.jsp">Agregar Paquete Turistico</a>
               </div>
               <div class="main-content">
                 <div class="section__content section__content--p30">

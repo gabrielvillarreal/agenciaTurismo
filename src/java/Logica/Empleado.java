@@ -15,7 +15,7 @@ import javax.persistence.*;
  * @author villa
  */
 @Entity
-public class Empleado extends Persona {
+public class Empleado  {
     
     
     @Id
@@ -25,6 +25,16 @@ public class Empleado extends Persona {
     @Basic
     private String cargo;
     private double sueldo;
+    private String nombre;
+    private String apellido;
+    private String direccion;
+    private String dni;
+    private String nacionalidad;
+    private String celular;
+    private String email;
+    
+    @Temporal(TemporalType.DATE)
+    private Date fecha_nac;
     
     @OneToOne
     private Usuario usuario;
@@ -32,52 +42,47 @@ public class Empleado extends Persona {
     @OneToMany
     private List<Venta> listaVentas;
 
-    public Empleado(int id_empleado, String cargo, double sueldo, Usuario usuario, List<Venta> listaVentas, int id_persona, String nombre, 
-            String apellido, String direccion, String dni, String nacionalidad, String celular, String email, Date fecha_nac) {
-        super(id_persona, nombre, apellido, direccion, dni, nacionalidad, celular, email, fecha_nac);
-        this.id_empleado = id_empleado;
-        this.cargo = cargo;
-        this.sueldo = sueldo;
-        this.usuario = usuario;
-        this.listaVentas = listaVentas;
-    }
-
-    public Empleado(int id_empleado, String cargo, double sueldo, Usuario usuario, List<Venta> listaVentas) {
-        this.id_empleado = id_empleado;
-        this.cargo = cargo;
-        this.sueldo = sueldo;
-        this.usuario = usuario;
-        this.listaVentas = listaVentas;
-    }
-
-    public Empleado(int id_empleado, String cargo, double sueldo, int id_persona, String nombre, String apellido, String direccion, String dni, String nacionalidad, String celular, String email, Date fecha_nac) {
-        super(id_persona, nombre, apellido, direccion, dni, nacionalidad, celular, email, fecha_nac);
-        this.id_empleado = id_empleado;
-        this.cargo = cargo;
-        this.sueldo = sueldo;
-        
-    }
-
-    public Empleado(String cargo, double sueldo, Usuario usuario, List<Venta> listaVentas, int id_persona, String nombre, String apellido, String direccion, String dni, String nacionalidad, String celular, String email, Date fecha_nac) {
-        super(id_persona, nombre, apellido, direccion, dni, nacionalidad, celular, email, fecha_nac);
-        this.cargo = cargo;
-        this.sueldo = sueldo;
-        this.usuario = usuario;
-        this.listaVentas = listaVentas;
-    }
-
-    public Empleado(String cargo, double sueldo, Usuario usuario, List<Venta> listaVentas) {
-        this.cargo = cargo;
-        this.sueldo = sueldo;
-        this.usuario = usuario;
-        this.listaVentas = listaVentas;
-    }
-
     public Empleado() {
+    }
+
+    public Empleado(int id_empleado, String cargo, double sueldo, String nombre, String apellido, String direccion, String dni, String nacionalidad, String celular, String email, Date fecha_nac, Usuario usuario, List<Venta> listaVentas) {
+        this.id_empleado = id_empleado;
+        this.cargo = cargo;
+        this.sueldo = sueldo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.dni = dni;
+        this.nacionalidad = nacionalidad;
+        this.celular = celular;
+        this.email = email;
+        this.fecha_nac = fecha_nac;
+        this.usuario = usuario;
+        this.listaVentas = listaVentas;
     }
 
     public int getId_empleado() {
         return id_empleado;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Empleado{id_empleado=").append(id_empleado);
+        sb.append(", cargo=").append(cargo);
+        sb.append(", sueldo=").append(sueldo);
+        sb.append(", nombre=").append(nombre);
+        sb.append(", apellido=").append(apellido);
+        sb.append(", direccion=").append(direccion);
+        sb.append(", dni=").append(dni);
+        sb.append(", nacionalidad=").append(nacionalidad);
+        sb.append(", celular=").append(celular);
+        sb.append(", email=").append(email);
+        sb.append(", fecha_nac=").append(fecha_nac);
+        sb.append(", usuario=").append(usuario);
+        sb.append(", listaVentas=").append(listaVentas);
+        sb.append('}');
+        return sb.toString();
     }
 
     public void setId_empleado(int id_empleado) {
@@ -100,6 +105,70 @@ public class Empleado extends Persona {
         this.sueldo = sueldo;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getFecha_nac() {
+        return fecha_nac;
+    }
+
+    public void setFecha_nac(Date fecha_nac) {
+        this.fecha_nac = fecha_nac;
+    }
+
     public Usuario getUsuario() {
         return usuario;
     }
@@ -116,19 +185,7 @@ public class Empleado extends Persona {
         this.listaVentas = listaVentas;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Empleado{id_empleado=").append(id_empleado);
-        sb.append(", cargo=").append(cargo);
-        sb.append(", sueldo=").append(sueldo);
-        sb.append(", usuario=").append(usuario);
-        sb.append(", listaVentas=").append(listaVentas);
-        sb.append('}');
-        return sb.toString();
-    }
-    
-    
+   
 
     
 }

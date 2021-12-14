@@ -5,8 +5,11 @@
  */
 package Persistencia;
 
+import Logica.Cliente;
 import Logica.Empleado;
+import Logica.PaqueteTuristico;
 import Logica.Servicio;
+import Logica.Usuario;
 import Persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
@@ -69,5 +72,81 @@ public class ControladoraPersistencia {
             ex.printStackTrace(System.out);
         }
     }
-    
+
+    public List<Cliente> traerClientes() {
+        return clienteJPA.findClienteEntities();
+    }
+    public void crearCliente(Cliente cliente){
+        try{
+            clienteJPA.create(cliente);
+        }catch (Exception ex){
+            ex.printStackTrace(System.out);
+        }
+        
+    }
+
+    public int cantServicio() {
+        return servicioJPA.getServicioCount();
+    }
+
+    public void borrarCliente(int id) {
+        try {
+            clienteJPA.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            ex.printStackTrace(System.out);
+        }
+    }
+
+    public void modificarCliente(Cliente cliente) {
+        try {
+            clienteJPA.edit(cliente);
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+    }
+
+
+    public Cliente buscarCliente(int id) {
+        return clienteJPA.findCliente(id);
+    }
+
+    public void crearUsuario(Usuario usuario) {
+        usuarioJPA.create(usuario);
+    }
+
+    public void modificarEmpleado(Empleado empleado) {
+        try {
+            empleadoJPA.edit(empleado);
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+    }
+
+    public Empleado buscarEmpleado(int id) {
+        return empleadoJPA.findEmpleado(id);
+    }
+
+    public void borrarEmpleado(int id) {
+        try {
+            empleadoJPA.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            ex.printStackTrace(System.out);
+        }
+    }
+
+    public Usuario buscarUsuario(int id) {
+        return usuarioJPA.findUsuario(id);
+    }
+
+    public void modificarUsuario(Usuario usuario) {
+        try {
+            usuarioJPA.edit(usuario);
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+    }
+
+    public void crearPaquete(PaqueteTuristico paquete) {
+        paqueteTuristicoJPA.create(paquete);
+    }
 }

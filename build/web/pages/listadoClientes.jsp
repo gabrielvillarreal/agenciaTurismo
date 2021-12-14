@@ -4,9 +4,9 @@
     Author     : villa
 --%>
 
-<%@page import="Logica.Servicio"%>
+<%@page import="Logica.Cliente"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.sql.Date"%>
+<%@page import="java.util.Date"%>
 <%@page import="java.util.List"%>
 <%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -240,7 +240,7 @@
                                             <li class="list-inline-item seprate">
                                                 <span>/</span>
                                             </li>
-                                            <li class="list-inline-item">Paquetes Turisticos</li>
+                                            <li class="list-inline-item">Listado de Clientes</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -262,7 +262,7 @@
             </div>
                <div>
                   <br>
-                  <a type="button" class="btn btn-primary align-self-end float-right" href="./servicio.jsp">Agregar Cliente</a>
+                  <a type="button" class="btn btn-primary float-right mr-5" href="./cliente.jsp">Agregar Cliente</a>
               </div>
               <div class="main-content">
                   <div class="table-responsive table--no-card m-b-30">
@@ -291,27 +291,32 @@
 
                                             String nombre = cliente.getNombre(); 
                                             String apellido = cliente.getApellido();
-                                            String direccion =  cliente.getDireccion());
-                                            String destino = serv.getDestino_servicio();
-                                            Date fecha = serv.getFecha_servicio();
+                                            String direccion =  cliente.getDireccion();
+                                            String dni = cliente.getDni();
+                                            Date fecha = cliente.getFecha_nac();
                                             SimpleDateFormat fechaCorta =  new SimpleDateFormat("dd/MM/yyyy");
-                                            int id = serv.getCodigo_servicio();%>
+                                            String nacionalidad = cliente.getNacionalidad();
+                                            String celular = cliente.getCelular();
+                                            String email = cliente.getEmail();
+                                            int id = cliente.getId_cliente();%>
                                             <tr>
-                                                <td><%=id%></td>
                                                 <td><%=nombre%></td>
-                                                <td><%=descripcion%></td>
-                                                <td><%=destino%></td>
+                                                <td><%=apellido%></td>
+                                                <td><%=direccion%></td>
+                                                <td><%=dni%></td>
                                                 <td><%=fechaCorta.format(fecha)%></td>
-                                                <td><%=costo%></td>
+                                                <td><%=nacionalidad%></td>
+                                                <td><%=celular%></td>
+                                                <td><%=email%></td>
                                                 <input type="hidden" name="id" value="<%=id%>" >
                                                 <td>
                                                     <div class="table-data-feature section__content">
-                                                        <form name="frmBorrarServicio" action="../SvEliminarServicio" method="POST" style="display:inline">
+                                                        <form name="frmBorrarCliente" action="../SvEliminarCliente" method="POST" style="display:inline">
                                                             <input type="hidden" name="id" value="<%=id%>" >
                                                             <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title data-original-title="Eliminar"><i class="zmdi zmdi-delete"></i></button>
                                                         </form>
                                                         <div class="pr-3"></div>    
-                                                        <form name="frmEditarServicio" action="../SvEditarServicio" method="POST" style="display:inline">
+                                                        <form name="frmEditarCliente" action="../SvModificarCliente" method="POST" style="display:inline">
                                                             <input type="hidden" name="id" value="<%=id%>" >
                                                             <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title data-original-title="Editar"><i class="zmdi zmdi-edit"></i></button>
                                                         </form>
