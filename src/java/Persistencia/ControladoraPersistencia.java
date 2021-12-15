@@ -10,6 +10,7 @@ import Logica.Empleado;
 import Logica.PaqueteTuristico;
 import Logica.Servicio;
 import Logica.Usuario;
+import Logica.Venta;
 import Persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
@@ -164,6 +165,14 @@ public class ControladoraPersistencia {
 
     public PaqueteTuristico buscarPaquete(int id) {
         return paqueteTuristicoJPA.findPaqueteTuristico(id);
+    }
+
+    public List<Usuario> buscarUsuarios() {
+        return usuarioJPA.findUsuarioEntities();
+    }
+
+    public List<Venta> traerVentas() {
+        return ventaJPA.findVentaEntities();
     }
 
     

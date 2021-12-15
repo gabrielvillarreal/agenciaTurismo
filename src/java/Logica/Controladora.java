@@ -258,5 +258,31 @@ public class Controladora {
         
     }
 
+    public boolean verificarAutenticacion(String nombreUsuario, String password){
+        
+        List<Usuario> listaUsuarios = controlPersistencia.buscarUsuarios();
+        
+        if(listaUsuarios != null){
+            for(Usuario usuario: listaUsuarios){
+                if(usuario.getUsuario().equalsIgnoreCase(nombreUsuario) && usuario.getPassword().equals(password) ){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public List<Venta> traerVentas(){
+        return controlPersistencia.traerVentas();
+    }
+
+    public void crearVenta(int idVenta, int idServicio, int idPaquete, int idCliente, int idEmpleado, int idMedioPago, String fechaVenta) {
+        
+        Cliente cliente = controlPersistencia.buscarCliente(idCliente);
+        cliente.set
+        
+    }
+
+    
    
 }

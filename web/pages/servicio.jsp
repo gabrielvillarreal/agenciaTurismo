@@ -42,122 +42,114 @@
 
 </head>
 <body class="animsition">
-    <div class="page-wrapper">
-        <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar2">
-            <div class="logo">
-                <a href="#">
-                    <img src="../images/dreamTravel.png" alt="Dream Travel" />
-                </a>
-            </div>
-            <div class="menu-sidebar2__content js-scrollbar1">
-                <div class="account2">
-                    <div class="image img-cir img-120">
-                        <img src="../images/icon/avatar-big-01.jpg" alt="Gabriel Villarreal" />
-                    </div>
-                    <h4 class="name">Gabriel Villarreal</h4>
-                    <a href="#">Sign out</a>
-                </div>
-                <nav class="navbar-sidebar2">
-                    <ul class="list-unstyled navbar__list">
-                            
-                        <li>
-                            <a href="../index.jsp">
-                                <i class="fas fa-home"></i>Inicio</a>
-                        </li>
-                        <li>
-                            <a href="./listadoVentas.jsp">
-                                <i class="fas fa-shopping-basket"></i>Ventas</a>
-                        </li>
-                        <li>
-                            <a href="./listadoPaquetes.jsp">
-                                <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
-                        </li>
-                        <li>
-                            <a href="./listadoServicios.jsp">
-                                <i class="fas fa-clipboard-check"></i>Servicio</a>
-                        </li>
-                            
-                       
-                        <li>
-                            <a href="./listadoClientes.jsp">
-                                <i class="fas fa-users"></i>Clientes</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                        </li>
-                        <li>
-                            <a href="./listadoEmpleados.jsp">
-                                <i class="fas fa-user"></i>Empleado</a>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages
-                                <span class="arrow">
-                                    <i class="fas fa-angle-down"></i>
-                                </span>
-                            </a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">
-                                        <i class="fas fa-sign-in-alt"></i>Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">
-                                        <i class="fas fa-user"></i>Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">
-                                        <i class="fas fa-unlock-alt"></i>Forget Password</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                    </ul>
-                </nav>
-            </div>
-        </aside>
-        <!-- END MENU SIDEBAR-->
-        <!-- PAGE CONTAINER-->
-        <div class="page-container2">
-            <!-- HEADER DESKTOP-->
-            <header class="header-desktop2">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap2">
-                            <div class="logo d-block d-lg-none">
-                                <a href="#">
-                                    <img src="../images/dreamTravel.png" style="height:50px"  alt="Dream Travel" />
-                                </a>
-                            </div>
-                            <div class="header-button2">
-                                
-                                <div class="header-button-item has-noti js-item-menu">
-                                    
-                                <div class="header-button-item mr-0 js-sidebar-btn">
-                                    <i class="zmdi zmdi-menu"></i>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <aside class="menu-sidebar2 js-right-sidebar d-block d-lg-none">
+    <%
+            HttpSession miSession = request.getSession();
+            String usuario = (String) miSession.getAttribute("usuario");
+            if(usuario == null){
+                response.sendRedirect("./sign-in.jsp");
+            }else{
+        %>
+        <div class="page-wrapper">
+            <!-- MENU SIDEBAR-->
+            <aside class="menu-sidebar2">
                 <div class="logo">
                     <a href="#">
-                        <img src="../images/dreamTravel.png" style="height:50px; "  alt="Dream Travel" />
+                        <img src="../images/dreamTravel.png" alt="Dream Travel" />
                     </a>
                 </div>
-                <div class="menu-sidebar2__content js-scrollbar2">
+                <div class="menu-sidebar2__content js-scrollbar1">
                     <div class="account2">
                         <div class="image img-cir img-120">
-                            <img src="../images/icon/avatar-big-01.jpg" alt="John Doe" />
+                            <img src="../images/icon/avatar-big-01.jpg" alt="Gabriel Villarreal" />
                         </div>
-                        <h4 class="name">john doe</h4>
-                        <a href="#">Sign out</a>
+                        <h4 class="name"><%=usuario%></h4>
+                        <form action="../SvUsuario" method="get">
+                            <button class="btn-sm btn-info" type="submit">Cerrar Sesion</button>
+                        </form>
                     </div>
+                    <nav class="navbar-sidebar2">
+                        <ul class="list-unstyled navbar__list">
+
+                            <li>
+                                <a href="../index.jsp">
+                                    <i class="fas fa-home"></i>Inicio</a>
+                            </li>
+                            <li>
+                                <a href="./listadoVentas.jsp">
+                                    <i class="fas fa-shopping-basket"></i>Ventas</a>
+                            </li>
+                            <li>
+                                <a href="./listadoPaquetes.jsp">
+                                    <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
+                            </li>
+                            <li>
+                                <a href="./listadoServicios.jsp">
+                                    <i class="fas fa-clipboard-check"></i>Servicio</a>
+                            </li>
+
+
+                            <li>
+                                <a href="./listadoClientes.jsp">
+                                    <i class="fas fa-users"></i>Clientes</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
+                            </li>
+                            <li>
+                                <a href="./listadoEmpleados.jsp">
+                                    <i class="fas fa-user"></i>Empleado</a>
+                            </li>
+                            
+
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+            <!-- END MENU SIDEBAR-->
+
+            <!-- PAGE CONTAINER-->
+            <div class="page-container2">
+                <!-- HEADER DESKTOP-->
+                <header class="header-desktop2">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+                            <div class="header-wrap2">
+                                <div class="logo d-block d-lg-none">
+                                    <a href="#">
+                                        <img src="../images/dreamTravel.png" style="height:50px"  alt="Dream Travel" />
+                                    </a>
+                                </div>
+                                <div class="header-button2">
+
+                                    <div class="header-button-item has-noti js-item-menu">
+
+                                        <div class="header-button-item mr-0 js-sidebar-btn">
+                                            <i class="zmdi zmdi-menu"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </header>
+                <aside class="menu-sidebar2 js-right-sidebar d-block d-lg-none">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="../images/dreamTravel.png" style="height:50px; "  alt="Dream Travel" />
+                        </a>
+                    </div>
+                    <div class="menu-sidebar2__content js-scrollbar2">
+                        <div class="account2">
+                            <div class="image img-cir img-120">
+                                <img src="../images/icon/avatar-big-01.jpg" alt="<%=usuario%>" />
+                            </div>
+                            <h4 class="name"><%=usuario%></h4>
+                            <form action="../SvUsuario" method="get">
+                                <button class="btn-sm btn-info" type="submit">Cerrar Sesion</button>
+                            </form>
+                            
+                        </div>
                     <nav class="navbar-sidebar2">
                         <ul class="list-unstyled navbar__list">
                             <li>
@@ -190,28 +182,7 @@
                                 <a href="./listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
-                            <li class="has-sub">
-                                <a class="js-arrow" href="#">
-                                    <i class="fas fa-copy"></i>Pages
-                                    <span class="arrow">
-                                        <i class="fas fa-angle-down"></i>
-                                    </span>
-                                </a>
-                                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                    <li>
-                                        <a href="login.html">
-                                            <i class="fas fa-sign-in-alt"></i>Login</a>
-                                    </li>
-                                    <li>
-                                        <a href="register.html">
-                                            <i class="fas fa-user"></i>Register</a>
-                                    </li>
-                                    <li>
-                                        <a href="forget-pass.html">
-                                            <i class="fas fa-unlock-alt"></i>Forget Password</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            
                         </ul>
                     </nav>
                 </div>
@@ -352,7 +323,7 @@
 
     <!-- Main JS-->
     <script src="../js/main.js"></script>
-
+<%}%>
 </body>
 
 </html>

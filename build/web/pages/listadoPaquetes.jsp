@@ -48,6 +48,13 @@
     </head>
 
     <body class="animsition">
+        <%
+            HttpSession miSession = request.getSession();
+            String usuario = (String) miSession.getAttribute("usuario");
+            if(usuario == null){
+                response.sendRedirect("./sign-in.jsp");
+            }else{
+        %>
         <div class="page-wrapper">
             <!-- MENU SIDEBAR-->
             <aside class="menu-sidebar2">
@@ -61,8 +68,10 @@
                         <div class="image img-cir img-120">
                             <img src="../images/icon/avatar-big-01.jpg" alt="Gabriel Villarreal" />
                         </div>
-                        <h4 class="name">Gabriel Villarreal</h4>
-                        <a href="#">Sign out</a>
+                        <h4 class="name"><%=usuario%></h4>
+                        <form action="../SvUsuario" method="get">
+                            <button class="btn-sm btn-info" type="submit">Cerrar Sesion</button>
+                        </form>
                     </div>
                     <nav class="navbar-sidebar2">
                         <ul class="list-unstyled navbar__list">
@@ -97,28 +106,7 @@
                                 <a href="./listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
-                            <li class="has-sub">
-                                <a class="js-arrow" href="#">
-                                    <i class="fas fa-copy"></i>Pages
-                                    <span class="arrow">
-                                        <i class="fas fa-angle-down"></i>
-                                    </span>
-                                </a>
-                                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                    <li>
-                                        <a href="login.html">
-                                            <i class="fas fa-sign-in-alt"></i>Login</a>
-                                    </li>
-                                    <li>
-                                        <a href="register.html">
-                                            <i class="fas fa-user"></i>Register</a>
-                                    </li>
-                                    <li>
-                                        <a href="forget-pass.html">
-                                            <i class="fas fa-unlock-alt"></i>Forget Password</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            
 
                         </ul>
                     </nav>
@@ -160,10 +148,13 @@
                     <div class="menu-sidebar2__content js-scrollbar2">
                         <div class="account2">
                             <div class="image img-cir img-120">
-                                <img src="../images/icon/avatar-big-01.jpg" alt="John Doe" />
+                                <img src="../images/icon/avatar-big-01.jpg" alt="<%=usuario%>" />
                             </div>
-                            <h4 class="name">john doe</h4>
-                            <a href="#">Sign out</a>
+                            <h4 class="name"><%=usuario%></h4>
+                            <form action="../SvUsuario" method="get">
+                                <button class="btn-sm btn-info" type="submit">Cerrar Sesion</button>
+                            </form>
+                            
                         </div>
                         <nav class="navbar-sidebar2">
                             <ul class="list-unstyled navbar__list">
@@ -197,28 +188,7 @@
                                     <a href="./listadoEmpleados.jsp">
                                         <i class="fas fa-user"></i>Empleado</a>
                                 </li>
-                                <li class="has-sub">
-                                    <a class="js-arrow" href="#">
-                                        <i class="fas fa-copy"></i>Pages
-                                        <span class="arrow">
-                                            <i class="fas fa-angle-down"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                        <li>
-                                            <a href="login.html">
-                                                <i class="fas fa-sign-in-alt"></i>Login</a>
-                                        </li>
-                                        <li>
-                                            <a href="register.html">
-                                                <i class="fas fa-user"></i>Register</a>
-                                        </li>
-                                        <li>
-                                            <a href="forget-pass.html">
-                                                <i class="fas fa-unlock-alt"></i>Forget Password</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                
                             </ul>
                         </nav>
                     </div>
@@ -376,7 +346,7 @@
 
             <!-- Main JS-->
             <script src="../js/main.js"></script>
-
+        <%}%>
     </body>
 
 </html>

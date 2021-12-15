@@ -1,23 +1,25 @@
 <%-- 
-    Document   : venta
-    Created on : 4 dic. 2021, 20:54:57
+    Document   : listadoClientes
+    Created on : 5 dic. 2021, 7:40:42
     Author     : villa
 --%>
 
+<%@page import="Logica.Venta"%>
 <%@page import="Logica.Empleado"%>
 <%@page import="Logica.Cliente"%>
-<%@page import="java.util.List"%>
-<%@page import="Logica.Servicio"%>
 <%@page import="Logica.PaqueteTuristico"%>
-<%@page import="javax.servlet.http.HttpSession"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="Logica.Servicio"%>
+<%@page import="java.util.List"%>
 <%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-   <!-- Required meta tags-->
+    <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -46,10 +48,10 @@
 
     <!-- Main CSS-->
     <link href="../css/theme.css" rel="stylesheet" media="all">
-</head>
 
-<body class="g-sidenav-show  bg-gray-200">
-  <%
+</head>
+<body class="">
+    <%
             HttpSession miSession = request.getSession();
             String usuario = (String) miSession.getAttribute("usuario");
             if(usuario == null){
@@ -182,7 +184,7 @@
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
                             <li>
-                                <a href="./listadoMetodoPagos.jsp">
+                                <a href="./metodosPago.jsp">
                                     <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
                             </li>
                             <li>
@@ -206,21 +208,13 @@
                                     <div class="au-breadcrumb-left">
                                         <span class="au-breadcrumb-span">Ud esta aqui:</span>
                                         <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                            <li class="list-inline-item ">
+                                            <li class="list-inline-item active">
                                                 <a href="../index.jsp">Inicio</a>
                                             </li>
                                             <li class="list-inline-item seprate">
                                                 <span>/</span>
                                             </li>
-                                            <li class="list-inline-item">
-                                                <a href="../pages/listadoVentas.jsp">Listado de Ventas</a>
-                                            </li>
-                                            <li class="list-inline-item seprate">
-                                                <span>/</span>
-                                            </li>
-                                            <li class="list-inline-item active">
-                                                <a>Agregar Venta</a>
-                                            </li>
+                                            <li class="list-inline-item">Listado de Ventas</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -229,161 +223,103 @@
                     </div>
                 </div>
             </section>
-            <!-- END BREADCRUMB-->      
-  
+            <!-- END BREADCRUMB-->
+            
     <div class="container-fluid py-4">
-      <div class="row">
+        <div class="row ">
         <div class="col-12">
           <div class="card my-4">
-            <div class="card-header">
-              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h1 class="text-dark text-capitalize ps-3">Ventas</h1>
-              </div>
+            <div class="card-header p-b-0 px-3">
+                
+                <h1 class="m-b-0">Listado de Ventas</h1>
+                
             </div>
-              <div class="card-body">
-                  <div >
-                      
-                      <form action="agregarVenta" id="formularioVenta">
-                          
-                      <div class="form-group col-6">
-                        <label for="fecha" class="pr-1  form-control-label">Fecha</label>
-                        <input type="text" id="fechaVenta" name="fechaVenta" class="form-control">
-                      </div>
-                          
-                        <div class="row form-group">
-                            <div class="col-6 ml-3">
-                                <label class="form-control-label" for="cliente">cliente</label>
-                            
-                                <select class="form-control" id="idCliente" name="idCliente">
-                                <%
-                                Controladora control = new Controladora();
-                                List <Cliente> listaClientes = control.traerClientes();
-                                for (Cliente cli : listaClientes) {
-
-                                    String nombre = cli.getNombre(); 
-                                    String apellido = cli.getApellido();
-                                    int idCliente = cli.getId_cliente();%>
-
-                                  <option id="<%=idCliente%>" name="<%=nombre%>"><%=nombre + " " + apellido  %></option>
-
-                                <%}%>
-                                </select>
-                            </div>
-                        </div>
+               <div>
+                  <br>
+                  <a type="button" class="btn btn-primary float-right mr-5" href="./venta.jsp">Agregar Venta</a>
+              </div>
+              <div class="main-content">
+                  <div class="table-responsive table--no-card m-b-30">
+                      <% Controladora control = new Controladora();
+                        List <Servicio> listaServicios = control.traerServicios();
+                        List <PaqueteTuristico> listaPaquetes = control.buscarPaquetes();
+                        List <Cliente> listaClientes= control.traerClientes();
+                        List <Empleado> listaEmpleados = control.traerEmpleados();
+                        List <Venta> listaVentas = control.traerVentas();
                         
-                                
+                      %>
                         
-                            <div class="col col-md-12">
-                                <div class="form-check">
-                                    <div class="radio">
-                                        <label for="radio1" class="form-check-label ">
-                                            <input type="radio" id="radio1" name="radios" value="1" class="form-check-input" onchange="mostrar(this.value);" checked="true">Servicios
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label for="radio2" class="form-check-label ">
-                                            <input type="radio" id="radio2" name="radios" value="2" class="form-check-input" onchange="mostrar(this.value);">Paquetes Turisticos
-                                        </label>
-                                    </div>
-                                </div>
-
-                            <div id="divservicio" class="row form-group" >
-
-                                <div  class="col-9 col-md-6">
-                                    <select class="form-control" id="idServicio" name="idServicio">
-                                    <%
-
-                                    List <Servicio> listaServicio = control.traerServicios();
-                                    for (Servicio serv : listaServicio) {
-
-                                        String nombre = serv.getNombre(); 
-                                        String descripcion = serv.getDescripcion_breve();
-                                        String costoServicio =  String.valueOf(serv.getCosto_servicio());
-                                        int id = serv.getCodigo_servicio();%>
-
-                                      <option id="<%=id%>" name="<%=costoServicio%>"><%=nombre + " : " + descripcion + " ($ " + costoServicio + ")" %></option>
-
-                                    <%}%>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div id="divpaquete" class="row form-group" style="display:none;">
-
-                                <div class="col-9 col-md-6">
-                                    <select class="form-control" id="idPaquete" name="idPaquete">
-                                    <%
-
-                                    List <PaqueteTuristico> listaPaquetes = control.buscarPaquetes();
-                                    for (PaqueteTuristico pq : listaPaquetes) {
-
-                                        int codigoPaquete = pq.getCodigo_paquete(); 
-                                        Double costoPaquete = pq.getCosto_paquete();
-                                        %>
-
-                                      <option id="<%=codigoPaquete%>" name="<%=codigoPaquete%>"><%="codigo del Paquete: " + codigoPaquete + " ($ " + costoPaquete + ")"  %></option>
-
-                                    <%}%>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                                    
-                        <div class="row form-group col-6 ml-2">
-                            <label class="form-control-label" for="idMedioPago">Medio de Pago</label>
-                            <select class="form-control" id="idMedioPago" name="idMedioPago">
-                              <option value="efectivo">Efectivo</option>
-                              <option value="tarjetaDebito">Tarjeta de Debito</option>
-                              <option value="tarjetaCredito">Tarjeta de Credito</option>
-                              <option value="monederoVirtual">Monedero Virtual</option>
-                              <option value="transferencia">Transferencia</option>
-                              
-                            </select>
-   
-                      </div>
-                                    
-                        <div class="row form-group">
-                            <div class="col-6 ml-3">
-                                <label class="form-control-label" for="empleado">Empleado</label>
                             
-                                <select class="form-control" id="idEmpleado" name="idEmpleado">
-                                <%
-                                
-                                List <Empleado> listaEmpleado = control.traerEmpleados();
-                                for (Empleado emp : listaEmpleado) {
+                                    <table class="table table-borderless table-stripped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th>fecha Venta</th>
+                                                <th>cliente</th>
+                                                <th>venta</th>
+                                                <!--<th>medio de pago</th>-->
+                                                <th>empleado</th>
+                                                <th class="text-right">Costo</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                        
+                                        <%
+                                        
+                                        for (Venta venta : listaVentas) {
 
-                                    String nombre = emp.getNombre(); 
-                                    String apellido = emp.getApellido();
-                                    int idEmpleado = emp.getId_empleado();
-                                    String puesto = emp.getCargo();
-                                
-                                %>
-
-                                  <option id="<%=idEmpleado%>" name="<%=nombre%>"><%=nombre + " " + apellido + " : " + puesto  %></option>
-
-                                <%}%>
-                                </select>
-                            </div>
-                        </div>
-                                
-                                
-                      </form>
-                               <form name="agregarVenta" action="../SvVenta" method="post" style="display:inline" class="text-center">  
-                                <div>
-                                     <button type="submit" class="btn btn-primary ">Aceptar</button>
-                                </div>
-                  </form>
-                    
-                  </form>
-                 
-                </div>
-            
+                                            Date fechaVenta = venta.getFecha_venta(); 
+                                            SimpleDateFormat fechaCorta =  new SimpleDateFormat("dd/MM/yyyy");
+                                            String cliente = listaClientes.get(venta.getNum_venta()).getNombre();
+                                            
+                                            String empleado = listaEmpleados.get(venta.getNum_venta()).getNombre();
+                                            
+                                            Double costoSP = null;
+                                            if(listaServicios.get(venta.getNum_venta()).getVenta() != null){
+                                                costoSP = listaServicios.get(venta.getNum_venta()).getCosto_servicio();
+                                            }else{
+                                                costoSP = listaPaquetes.get(venta.getNum_venta()).getCosto_paquete();
+                                            }
+                                            
+                                            
+                                            int idVenta = venta.getNum_venta();%>
+                                            <tr>
+                                                <td><%=fechaCorta.format(fechaVenta)%></td>
+                                                <td><%=cliente%></td>
+                                                <td><%=empleado%></td>
+                                                <td><%=costoSP%></td>
+                                                
+                                                <input type="hidden" id="<%=idVenta%>" name="id" value="<%=idVenta%>" >
+                                                <td>
+                                                    <div class="table-data-feature section__content">
+                                                        <form name="frmBorrarServicio" action="../SvEliminarServicio" method="POST" style="display:inline">
+                                                            <input type="hidden" name="id" value="<%=idVenta%>" >
+                                                            <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title data-original-title="Eliminar"><i class="zmdi zmdi-delete"></i></button>
+                                                        </form>
+                                                        <div class="pr-3"></div>    
+                                                        <form name="frmEditarServicio" action="../SvEditarServicio" method="POST" style="display:inline">
+                                                            <input type="hidden" name="id" value="<%=idVenta%>" >
+                                                            <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title data-original-title="Editar"><i class="zmdi zmdi-edit"></i></button>
+                                                        </form>
+                                                    </div>
+                                                    
+                                                </td>
+                                            </tr>
+                                            <%}
+                                            
+                                            %>
+                                        </tbody>
+                                    </table>
+                                    </div>
+            </div>
           </div>
         </div>
+        </div>
       </div>
-      </div>
-    </div>
-            <section>
+    
+    <section>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
@@ -398,6 +334,7 @@
             </section>
             <!-- END PAGE CONTAINER-->
         </div>
+
     </div>
 
     <!-- Jquery JS-->
@@ -427,24 +364,6 @@
 
     <!-- Main JS-->
     <script src="../js/main.js"></script>
-  
-  
-  <script>
-     function mostrar(dato) {
-        if (dato == "1") {
-          document.getElementById("divservicio").style.display = "block";
-          document.getElementById("divpaquete").style.display = "none";
-          
-        }
-        if (dato == "2") {
-          document.getElementById("divservicio").style.display = "none";
-          document.getElementById("divpaquete").style.display = "block";
-          
-        }
-        
-      }
-  </script>
- <%}%>
+<%}%>
 </body>
-
 </html>
