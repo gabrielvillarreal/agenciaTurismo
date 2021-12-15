@@ -4,11 +4,13 @@
     Author     : villa
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="Logica.Servicio"%>
 <%@page import="Logica.PaqueteTuristico"%>
 <%@page import="javax.servlet.http.HttpSession"%>
 <%@page import="Logica.Controladora"%>
+<%@page import="java.util.Arrays"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -278,8 +280,9 @@
                             </div>
                             <div class="col-9 col-md-6">
                                 <select class="form-control" id="servicio" name="servicio">
-                                <%
-                                Controladora control = new Controladora();
+                                    
+                                <%Controladora control = new Controladora();
+                                
                                 List <Servicio> listaServicio = control.traerServicios();
                                 for (Servicio serv : listaServicio) {
 
@@ -292,14 +295,17 @@
 
                                 <%}%>
                                 </select>
+                                  
                             </div>
                                 <div class="col-3 col-md-3" >
                                 <button type="submit" class="btn btn-success ">Agregar Servicio</button>
                             </div>
                         </div>
                       </form>
-                               <form name="agregarPaquete" action="../SvPaquete" method="post" style="display:inline" class="text-center">  
-                                <div >
+                               <form name="modificarPaquete" action="../SvModificarPaquete" method="post" style="display:inline" class="text-center">  
+                                
+                                  
+                                   <div >
                                     <table id="transactionTable" class="table table-hover">
                                         <thead>
                                             <tr class="encabezado">
@@ -311,13 +317,46 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr style="display:none">
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>0</td>
-                                                <td></td>
+                                            <% HttpSession misession = request.getSession();
+                            
+                                                PaqueteTuristico paquete = (PaqueteTuristico) misession.getAttribute("paquete");
+                                                int idPaquete = paquete.getCodigo_paquete();
+                                                Double costoPaquete = paquete.getCosto_paquete();
+                                                String datos[]= new String[paquete.getListaServicios().size()];
+                                                StringBuilder sb = new StringBuilder();
+                                               
+                                                for (int i=0; i < paquete.getListaServicios().size(); i++){ //Servicio servicioPaquete : paquete.getListaServicios()) {
+
+                                                    String nombreSv = paquete.getListaServicios().get(i).getNombre(); 
+                                                    String descripcionSv = paquete.getListaServicios().get(i).getDescripcion_breve();
+                                                    String costoSv =  String.valueOf(paquete.getListaServicios().get(i).getCosto_servicio());
+                                                    int codigoSv = paquete.getListaServicios().get(i).getCodigo_servicio();
+                                                    
+                                                    datos[i] = String.valueOf(paquete.getListaServicios().get(i).getCodigo_servicio());
+                                                
+                                                    
+                                                    
+                                                    
+                                                        sb.append(String.valueOf(datos[i]));
+                                                        if (i < datos.length-1) sb.append(", ");
+                                                    
+                                                    
+                                                    
+                                        
+
+                                            %> 
+                                            <tr >
+                                                
+                                                <td><%=codigoSv%></td>
+                                                <td><%=nombreSv%></td>
+                                                <td><%=descripcionSv%></td>
+                                                <td><%=costoSv%></td>
+                                                <td>
+                                                    <button type="reset" class="btn btn-danger " onclick="deleteRow(this)">Eliminar</button>
+                                                </td>
+                                                
                                             </tr>
+                                            <%}%>
                                             
                                         </tbody>
                                         
@@ -326,15 +365,15 @@
                                         
                                     </table>
                                     <div class="row align-self-end">
-                                        
+                                        <input type="hidden" id="idPaquete" name="idPaquete" class="form-control">
                                         
                                         <span class=" h2 m-3" >Costo Total: </span>
                                         
-                                        <input class=" text-dark  h3 "  type="text" id="totalServicios" name="totalServicios" class="form-control">
+                                        <input class=" text-dark  h3 "  type="text" id="totalServicios" name="totalServicios" class="form-control" value="<%=costoPaquete%>">
                                         
                                     </div>
                                     
-                                    <input type="hidden" id="idServicio" name="idServicio" class="form-control">
+                                        <input type="text" id="idServicio" name="idServicio" class="form-control" value="<%=sb%>">
                                     
                                 </div>
                                 <br>
@@ -468,7 +507,12 @@
 
         });
       }
-      
+      function deleteRow(btn) {
+        var row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        calcularTotal();
+      }
+
   </script>
   
  

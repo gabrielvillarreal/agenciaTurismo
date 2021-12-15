@@ -149,4 +149,22 @@ public class ControladoraPersistencia {
     public void crearPaquete(PaqueteTuristico paquete) {
         paqueteTuristicoJPA.create(paquete);
     }
+
+    public List<PaqueteTuristico> buscarPaquetes() {
+        return  paqueteTuristicoJPA.findPaqueteTuristicoEntities();
+    }
+
+    public void borrarPaquete(int id) {
+        try {
+            paqueteTuristicoJPA.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public PaqueteTuristico buscarPaquete(int id) {
+        return paqueteTuristicoJPA.findPaqueteTuristico(id);
+    }
+
+    
 }

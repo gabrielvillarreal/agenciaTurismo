@@ -325,13 +325,16 @@
                                             
                                         
                                     </table>
-                                    <div>
+                                    <div class="row align-self-end">
                                         
-                                        <input type="text" id="totalServicios" name="totalServicios" class="form-control">
-                                        <h3 class="float-right" >Total: </h3>
+                                        
+                                        <span class=" h2 m-3" >Costo Total: </span>
+                                        
+                                        <input class=" text-dark  h3 "  type="text" id="totalServicios" name="totalServicios" class="form-control">
+                                        
                                     </div>
                                     
-                                    <input type="text" id="idServicio" name="idServicio" class="form-control">
+                                    <input type="hidden" id="idServicio" name="idServicio" class="form-control">
                                     
                                 </div>
                                 <br>
@@ -421,13 +424,6 @@
           newTypeCellRef.textContent = datos[1];
           newTypeCellRef = newTransactionRowRef.insertCell(3);
           newTypeCellRef.textContent = document.getElementById("servicio").selectedOptions[0].attributes.name.value;
-         
-        
-       
-        
-        
-          
-          //document.getElementById("total").textContent = total;
           
           let newDeleteCell = newTransactionRowRef.insertCell(4);
           let deleteButton = document.createElement("button");
@@ -466,8 +462,8 @@
             //le aplico el 10% de descuento
             total_col1 = total_col1 - ((total_col1*10)/100);
             //Muestro el resultado en el th correspondiente a la columna
-            $('#totalServicios').valueOf(total_col1);
-            $('#idServicio').text(idServicio);
+            $('#totalServicios').val(total_col1);
+            $('#idServicio').val(idServicio);
             
 
         });

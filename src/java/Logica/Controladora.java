@@ -233,4 +233,30 @@ public class Controladora {
         controlPersistencia.crearPaquete(paquete);
         
     }
+
+    public Servicio buscarServicio(int parseInt) {
+        return controlPersistencia.buscarServicios(parseInt);
+    }
+    
+     public List<PaqueteTuristico> buscarPaquetes() {
+        return controlPersistencia.buscarPaquetes();
+    }
+
+    public void borrarPaquete(int id) {
+        controlPersistencia.borrarPaquete(id);
+    }
+
+    public PaqueteTuristico buscarPaquete(int id) {
+        return controlPersistencia.buscarPaquete(id);
+    }
+
+    public void modificarPaquete(int id, String costoPaquete) {
+        PaqueteTuristico paq = controlPersistencia.buscarPaquete(id);
+        
+        
+        Servicio sv = controlPersistencia.buscarServicios(id);
+        
+    }
+
+   
 }

@@ -3,6 +3,4 @@ Supuestos:
 * Las ventas solo permitiran un solo medio de pago
 * para agregar servicios en paquetes, tienen que tener cargados los servicios
 * los campos no estan validados
-
-oooooooo
-RdLuna!2
+* No agregar dos servicios iguales o repetidos en el paquete turistico porque no estan validado
