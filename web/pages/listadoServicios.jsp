@@ -97,10 +97,7 @@
                                 <a href="./listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                            </li>
+                            
                             <li>
                                 <a href="./listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
@@ -179,10 +176,7 @@
                                 <a href="./listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
-                            <li>
-                                <a href="./metodosPago.jsp">
-                                    <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                            </li>
+                            
                             <li>
                                 <a href="./listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>

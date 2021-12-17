@@ -33,13 +33,10 @@ public class Cliente implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fecha_nac;
 
-    @OneToMany
-    private List<Venta> venta;
-
     public Cliente() {
     }
 
-    public Cliente(int id_cliente, String nombre, String apellido, String direccion, String dni, String nacionalidad, String celular, String email, Date fecha_nac, List<Venta> venta) {
+    public Cliente(int id_cliente, String nombre, String apellido, String direccion, String dni, String nacionalidad, String celular, String email, Date fecha_nac) {
         this.id_cliente = id_cliente;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -49,7 +46,14 @@ public class Cliente implements Serializable {
         this.celular = celular;
         this.email = email;
         this.fecha_nac = fecha_nac;
-        this.venta = venta;
+    }
+
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     public String getNombre() {
@@ -116,22 +120,6 @@ public class Cliente implements Serializable {
         this.fecha_nac = fecha_nac;
     }
 
-    public int getId_cliente() {
-        return id_cliente;
-    }
-
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
-    }
-
-    public List<Venta> getVenta() {
-        return venta;
-    }
-
-    public void setVenta(List<Venta> venta) {
-        this.venta = venta;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -144,12 +132,13 @@ public class Cliente implements Serializable {
         sb.append(", celular=").append(celular);
         sb.append(", email=").append(email);
         sb.append(", fecha_nac=").append(fecha_nac);
-        sb.append(", venta=").append(venta);
         sb.append('}');
         return sb.toString();
     }
+
     
 
+    
     
     
    

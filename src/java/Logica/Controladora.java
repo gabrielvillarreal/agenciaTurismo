@@ -9,8 +9,10 @@ import Persistencia.ControladoraPersistencia;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -276,10 +278,37 @@ public class Controladora {
         return controlPersistencia.traerVentas();
     }
 
-    public void crearVenta(int idVenta, int idServicio, int idPaquete, int idCliente, int idEmpleado, int idMedioPago, String fechaVenta) {
+    public void crearVenta( String idServicio, String idPaquete, String servOPaq, String idCliente, String idEmpleado, String medioPago, String fechaVenta) {
         
-        Cliente cliente = controlPersistencia.buscarCliente(idCliente);
-        cliente.set
+        Empleado empleado = controlPersistencia.buscarEmpleado(Integer.parseInt(idEmpleado));
+        Cliente cliente = controlPersistencia.buscarCliente(Integer.parseInt(idCliente));
+        
+        Venta venta = new Venta();
+        venta.setCliente(cliente);
+        venta.setEmpleado(empleado);
+        if(servOPaq=="servicio"){
+            Servicio servicio = controlPersistencia.buscarServicios(Integer.parseInt(idServicio));
+            venta.setServicio(servicio);
+        }else{
+            PaqueteTuristico paquete = controlPersistencia.buscarPaquete(Integer.parseInt(idPaquete));
+            venta.setPaqueteTuristico(paquete);
+        }
+        
+        venta.setMedioPago(medioPago);
+        SimpleDateFormat fecVenta = new SimpleDateFormat("dd/MM/yyyy");
+        Date fv = new Date();
+        try {
+            fv = fecVenta.parse(fechaVenta);
+        } catch (ParseException ex) {
+            ex.printStackTrace(System.out);
+        }
+        
+        venta.setFecha_venta(fv);
+        
+        controlPersistencia.crearVenta(venta);
+        
+        
+        
         
     }
 

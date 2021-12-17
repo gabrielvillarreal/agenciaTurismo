@@ -99,10 +99,7 @@
                                 <a href="./listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                            </li>
+                            
                             <li>
                                 <a href="./listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
@@ -181,10 +178,7 @@
                                 <a href="./listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
-                            <li>
-                                <a href="./listadoMetodoPagos.jsp">
-                                    <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                            </li>
+                           
                             <li>
                                 <a href="./listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
@@ -219,7 +213,7 @@
                                                 <span>/</span>
                                             </li>
                                             <li class="list-inline-item active">
-                                                <a>Agregar Paquete</a>
+                                                <a>Modificar Paquete</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -237,7 +231,7 @@
           <div class="card my-4">
             <div class="card-header">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h1 class="text-dark text-capitalize ps-3">Paquete Turistico</h1>
+                <h1 class="text-dark text-capitalize ps-3">Modificar Paquete Turistico</h1>
               </div>
             </div>
               <div class="card-body">
@@ -345,7 +339,7 @@
                                         
                                     </div>
                                     
-                                        <input type="text" id="idServicio" name="idServicio" class="form-control" value="<%=sb%>">
+                                        <input type="hidden" id="idServicio" name="idServicio" class="form-control" value="<%=sb%>">
                                     
                                 </div>
                                 <br>

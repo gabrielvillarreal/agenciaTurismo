@@ -22,13 +22,33 @@ public class Venta implements Serializable {
     
     @Temporal(TemporalType.DATE)
     private Date fecha_venta;
+    
+    @Basic
+    private String MedioPago;
 
-    public Venta(int num_venta, Date fecha_venta) {
-        this.num_venta = num_venta;
-        this.fecha_venta = fecha_venta;
-    }
+    @ManyToOne
+    private Cliente cliente;
+    
+    @ManyToOne
+    private Empleado empleado;
+    
+    @ManyToOne
+    private PaqueteTuristico paqueteTuristico;
+    
+    @ManyToOne
+    private Servicio servicio;
 
     public Venta() {
+    }
+
+    public Venta(int num_venta, Date fecha_venta, String MedioPago, Cliente cliente, Empleado empleado, PaqueteTuristico paqueteTuristico, Servicio servicio) {
+        this.num_venta = num_venta;
+        this.fecha_venta = fecha_venta;
+        this.MedioPago = MedioPago;
+        this.cliente = cliente;
+        this.empleado = empleado;
+        this.paqueteTuristico = paqueteTuristico;
+        this.servicio = servicio;
     }
 
     @Override
@@ -36,6 +56,11 @@ public class Venta implements Serializable {
         StringBuilder sb = new StringBuilder();
         sb.append("Venta{num_venta=").append(num_venta);
         sb.append(", fecha_venta=").append(fecha_venta);
+        sb.append(", MedioPago=").append(MedioPago);
+        sb.append(", cliente=").append(cliente);
+        sb.append(", empleado=").append(empleado);
+        sb.append(", paqueteTuristico=").append(paqueteTuristico);
+        sb.append(", servicio=").append(servicio);
         sb.append('}');
         return sb.toString();
     }
@@ -55,6 +80,45 @@ public class Venta implements Serializable {
     public void setFecha_venta(Date fecha_venta) {
         this.fecha_venta = fecha_venta;
     }
-    
+
+    public String getMedioPago() {
+        return MedioPago;
+    }
+
+    public void setMedioPago(String MedioPago) {
+        this.MedioPago = MedioPago;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public PaqueteTuristico getPaqueteTuristico() {
+        return paqueteTuristico;
+    }
+
+    public void setPaqueteTuristico(PaqueteTuristico paqueteTuristico) {
+        this.paqueteTuristico = paqueteTuristico;
+    }
+
+    public Servicio getServicio() {
+        return servicio;
+    }
+
+    public void setServicio(Servicio servicio) {
+        this.servicio = servicio;
+    }
     
 }

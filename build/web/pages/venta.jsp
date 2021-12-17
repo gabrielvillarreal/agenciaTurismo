@@ -11,7 +11,7 @@
 <%@page import="Logica.PaqueteTuristico"%>
 <%@page import="javax.servlet.http.HttpSession"%>
 <%@page import="Logica.Controladora"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -99,10 +99,7 @@
                                 <a href="./listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                            </li>
+                            
                             <li>
                                 <a href="./listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
@@ -181,10 +178,7 @@
                                 <a href="./listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
-                            <li>
-                                <a href="./listadoMetodoPagos.jsp">
-                                    <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                            </li>
+                            
                             <li>
                                 <a href="./listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
@@ -243,7 +237,7 @@
               <div class="card-body">
                   <div >
                       
-                      <form action="agregarVenta" id="formularioVenta">
+                      <form id="formularioVenta" action="../SvVenta" method="post">
                           
                       <div class="form-group col-6">
                         <label for="fecha" class="pr-1  form-control-label">Fecha</label>
@@ -264,9 +258,9 @@
                                     String apellido = cli.getApellido();
                                     int idCliente = cli.getId_cliente();%>
 
-                                  <option id="<%=idCliente%>" name="<%=nombre%>"><%=nombre + " " + apellido  %></option>
+                                  <option id="<%=idCliente%>" value="<%=idCliente%>"><%=idCliente + ":" + nombre + " " + apellido  %></option>
 
-                                <%}%>
+                                  <%}%>
                                 </select>
                             </div>
                         </div>
@@ -277,12 +271,12 @@
                                 <div class="form-check">
                                     <div class="radio">
                                         <label for="radio1" class="form-check-label ">
-                                            <input type="radio" id="radio1" name="radios" value="1" class="form-check-input" onchange="mostrar(this.value);" checked="true">Servicios
+                                            <input type="radio" id="radioServicio" name="radios" value="1" class="form-check-input" onchange="mostrar(this.value);" checked="true">Servicios
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label for="radio2" class="form-check-label ">
-                                            <input type="radio" id="radio2" name="radios" value="2" class="form-check-input" onchange="mostrar(this.value);">Paquetes Turisticos
+                                            <input type="radio" id="radioPaquete" name="radios" value="2" class="form-check-input" onchange="mostrar(this.value);">Paquetes Turisticos
                                         </label>
                                     </div>
                                 </div>
@@ -299,9 +293,9 @@
                                         String nombre = serv.getNombre(); 
                                         String descripcion = serv.getDescripcion_breve();
                                         String costoServicio =  String.valueOf(serv.getCosto_servicio());
-                                        int id = serv.getCodigo_servicio();%>
+                                        int idServicio = serv.getCodigo_servicio();%>
 
-                                      <option id="<%=id%>" name="<%=costoServicio%>"><%=nombre + " : " + descripcion + " ($ " + costoServicio + ")" %></option>
+                                      <option id="<%=idServicio%>" value="<%=idServicio%>"><%=nombre + " : " + descripcion + " ($ " + costoServicio + ")" %></option>
 
                                     <%}%>
                                     </select>
@@ -321,7 +315,7 @@
                                         Double costoPaquete = pq.getCosto_paquete();
                                         %>
 
-                                      <option id="<%=codigoPaquete%>" name="<%=codigoPaquete%>"><%="codigo del Paquete: " + codigoPaquete + " ($ " + costoPaquete + ")"  %></option>
+                                      <option id="<%=codigoPaquete%>" value="<%=codigoPaquete%>"><%="codigo del Paquete: " + codigoPaquete + " ($ " + costoPaquete + ")"  %></option>
 
                                     <%}%>
                                     </select>
@@ -330,8 +324,8 @@
                         </div>
                                     
                         <div class="row form-group col-6 ml-2">
-                            <label class="form-control-label" for="idMedioPago">Medio de Pago</label>
-                            <select class="form-control" id="idMedioPago" name="idMedioPago">
+                            <label class="form-control-label" for="MedioPago">Medio de Pago</label>
+                            <select class="form-control" id="MedioPago" name="MedioPago">
                               <option value="efectivo">Efectivo</option>
                               <option value="tarjetaDebito">Tarjeta de Debito</option>
                               <option value="tarjetaCredito">Tarjeta de Credito</option>
@@ -352,29 +346,30 @@
                                 List <Empleado> listaEmpleado = control.traerEmpleados();
                                 for (Empleado emp : listaEmpleado) {
 
-                                    String nombre = emp.getNombre(); 
-                                    String apellido = emp.getApellido();
+                                    String nombreEmp = emp.getNombre(); 
+                                    String apellidoEmp = emp.getApellido();
                                     int idEmpleado = emp.getId_empleado();
                                     String puesto = emp.getCargo();
                                 
                                 %>
 
-                                  <option id="<%=idEmpleado%>" name="<%=nombre%>"><%=nombre + " " + apellido + " : " + puesto  %></option>
+                                  <option idEmpleado="<%=idEmpleado%>" value="<%=idEmpleado%>"><%=nombreEmp + " " + apellidoEmp + " : " + puesto  %></option>
 
                                 <%}%>
                                 </select>
                             </div>
                         </div>
                                 
-                                
-                      </form>
-                               <form name="agregarVenta" action="../SvVenta" method="post" style="display:inline" class="text-center">  
-                                <div>
+                                 <div>
+                                     
                                      <button type="submit" class="btn btn-primary ">Aceptar</button>
                                 </div>
-                  </form>
+                      </form>
+                               
+                               
+             
                     
-                  </form>
+                  
                  
                 </div>
             
@@ -388,7 +383,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright Â© <script>
+                                <p>Copyright © <script>
                   document.write(new Date().getFullYear())
                 </script> Cesar Gabriel Villarreal. All rights reserved. </p>
                             </div>

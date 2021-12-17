@@ -44,6 +44,7 @@
 </head>
 
 <body class="animsition">
+    
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
@@ -70,8 +71,8 @@
                             </form>
                             <div class="register-link  ">
                                 <p>
-                                    Don't you have account?
-                                    <a href="#">Sign Up Here</a>
+                                    No tienes Cuenta?
+                                    <a href="../pages/empleadoUser.jsp">Crea una aqui</a>
                                 </p>
                             </div>
                         </div>

@@ -24,7 +24,6 @@ public class ControladoraPersistencia {
     
     ClienteJpaController clienteJPA = new ClienteJpaController();
     EmpleadoJpaController empleadoJPA = new EmpleadoJpaController();
-    MedioPagoJpaController medioPagoJPA = new MedioPagoJpaController();
     PaqueteTuristicoJpaController paqueteTuristicoJPA = new PaqueteTuristicoJpaController();
     ServicioJpaController servicioJPA = new ServicioJpaController();
     UsuarioJpaController usuarioJPA = new UsuarioJpaController();
@@ -173,6 +172,22 @@ public class ControladoraPersistencia {
 
     public List<Venta> traerVentas() {
         return ventaJPA.findVentaEntities();
+    }
+
+    public Venta buscarVenta(int idVenta) {
+        return ventaJPA.findVenta(idVenta);
+    }
+
+    public void modificarPaquete(PaqueteTuristico paquete) {
+        try {
+            paqueteTuristicoJPA.edit(paquete);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void crearVenta(Venta ventas) {
+        ventaJPA.create(ventas);
     }
 
     

@@ -4,7 +4,6 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Logica.Cliente</class>
     <class>Logica.Empleado</class>
-    <class>Logica.MedioPago</class>
     <class>Logica.PaqueteTuristico</class>
     <class>Logica.Servicio</class>
     <class>Logica.Usuario</class>

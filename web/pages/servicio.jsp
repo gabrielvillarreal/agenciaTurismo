@@ -4,7 +4,7 @@
     Author     : villa
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -92,10 +92,7 @@
                                 <a href="./listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                            </li>
+                            
                             <li>
                                 <a href="./listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
@@ -174,10 +171,7 @@
                                 <a href="./listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
-                            <li>
-                                <a href="./metodosPago.jsp">
-                                    <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                            </li>
+                            
                             <li>
                                 <a href="./listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
@@ -239,7 +233,7 @@
                           <option value="Hotel por noche/s">Hotel por noche/s</option>
                           <option value="Alquiler de auto">Alquiler de auto</option>
                           <option value="Pasajes de colectivo">Pasajes de colectivo</option>
-                          <option value="Pasajes de aviÃ³n">Pasajes de aviÃ³n</option>
+                          <option value="Pasajes de avión">Pasajes de avión</option>
                           <option value="Pasajes de tren">Pasajes de tren</option>
                           <option value="Excursiones">Excursiones</option>
                           <option value="Entradas a Eventos">Entradas a Eventos</option>
@@ -248,7 +242,7 @@
                       </div>
                       <br>  
                     <div class="form-group">
-                      <label for="descripcion" class="pr-1  form-control-label">DescripciÃ³n </label>
+                      <label for="descripcion" class="pr-1  form-control-label">Descripción </label>
                       <input type="text" id="descripcion" name="descripcion" class="form-control">
                     </div>
                     <div class="form-group">
@@ -283,7 +277,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright Â© <script>
+                                <p>Copyright © <script>
                   document.write(new Date().getFullYear())
                 </script> Cesar Gabriel Villarreal. All rights reserved. </p>
                             </div>

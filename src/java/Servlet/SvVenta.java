@@ -42,17 +42,29 @@ public class SvVenta extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        int idVenta = Integer.parseInt(request.getParameter("idVenta"));
-        int idServicio = Integer.parseInt(request.getParameter("idServicio"));
-        int idPaquete = Integer.parseInt(request.getParameter("idPaquete"));
-        int idCliente = Integer.parseInt(request.getParameter("idEmpleado"));
-        int idEmpleado = Integer.parseInt(request.getParameter("idEmpleado"));
-        int idMedioPago = Integer.parseInt(request.getParameter("idMedioPago"));
-        String fechaVenta = request.getParameter("fechaVenta");
         
+        String idServicio = request.getParameter("idServicio");
+        String idPaquete = request.getParameter("idPaquete");
+        String idCliente = request.getParameter("idCliente");
+        String idEmpleado = request.getParameter("idEmpleado");
+        String medioPago = request.getParameter("MedioPago");
+        String fechaVenta = request.getParameter("fechaVenta");
+        String servOPaq = request.getParameter("radios");
+        System.out.println(servOPaq);
+        
+        if(Integer.parseInt(servOPaq)==1){
+            servOPaq = "servicio";
+        }else{
+            servOPaq = "paquete";
+        }
+            
+         
+        System.out.println(servOPaq + "servicio:" + idServicio + " paquete:" + idPaquete + " cliente:" + idCliente + " empleado:" + idEmpleado + " medioPago:" + medioPago + " fecha:" + fechaVenta);
         
         Controladora control = new Controladora();
-        control.crearVenta(idVenta,idServicio,idPaquete,idCliente,idEmpleado, idMedioPago, fechaVenta);
+        control.crearVenta(idServicio,idPaquete,servOPaq,idCliente,idEmpleado, medioPago, fechaVenta);
+        
+        response.sendRedirect("./pages/listadoVentas.jsp");
         
     }
 

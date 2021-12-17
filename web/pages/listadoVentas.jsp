@@ -101,10 +101,7 @@
                                 <a href="./listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                            </li>
+                            
                             <li>
                                 <a href="./listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
@@ -183,10 +180,7 @@
                                 <a href="./listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
-                            <li>
-                                <a href="./metodosPago.jsp">
-                                    <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                            </li>
+                            
                             <li>
                                 <a href="./listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
@@ -241,10 +235,6 @@
               <div class="main-content">
                   <div class="table-responsive table--no-card m-b-30">
                       <% Controladora control = new Controladora();
-                        List <Servicio> listaServicios = control.traerServicios();
-                        List <PaqueteTuristico> listaPaquetes = control.buscarPaquetes();
-                        List <Cliente> listaClientes= control.traerClientes();
-                        List <Empleado> listaEmpleados = control.traerEmpleados();
                         List <Venta> listaVentas = control.traerVentas();
                         
                       %>
@@ -253,11 +243,13 @@
                                     <table class="table table-borderless table-stripped table-earning">
                                         <thead>
                                             <tr>
-                                                <th>fecha Venta</th>
-                                                <th>cliente</th>
-                                                <th>venta</th>
-                                                <!--<th>medio de pago</th>-->
-                                                <th>empleado</th>
+                                                <th>Venta</th>
+                                                <th>Cliente</th>
+                                                <th>Fecha venta</th>
+                                                <th>Medio de pago</th>
+                                                <th>Tipo</th>
+                                                <th>Descripcion</th>
+                                                <th>Empleado</th>
                                                 <th class="text-right">Costo</th>
                                                 <th></th>
                                                 <th></th>
@@ -272,22 +264,32 @@
 
                                             Date fechaVenta = venta.getFecha_venta(); 
                                             SimpleDateFormat fechaCorta =  new SimpleDateFormat("dd/MM/yyyy");
-                                            String cliente = listaClientes.get(venta.getNum_venta()).getNombre();
-                                            
-                                            String empleado = listaEmpleados.get(venta.getNum_venta()).getNombre();
+                                            String cliente = venta.getCliente().getApellido();
+                                            String descripcion;
+                                            String empleado = venta.getEmpleado().getApellido();
+                                            String tipo;
                                             
                                             Double costoSP = null;
-                                            if(listaServicios.get(venta.getNum_venta()).getVenta() != null){
-                                                costoSP = listaServicios.get(venta.getNum_venta()).getCosto_servicio();
+                                            if(venta.getServicio() != null){
+                                                costoSP = venta.getServicio().getCosto_servicio();// listaServicios.get(venta.getNum_venta()).getCosto_servicio();
+                                                descripcion = venta.getServicio().getDescripcion_breve();
+                                                tipo="Servicio";
                                             }else{
-                                                costoSP = listaPaquetes.get(venta.getNum_venta()).getCosto_paquete();
+                                                costoSP = venta.getPaqueteTuristico().getCosto_paquete();// listaPaquetes.get(venta.getNum_venta()).getCosto_paquete();
+                                                descripcion =  "Codigo del paquete: ";
+                                                descripcion = descripcion + String.valueOf(venta.getPaqueteTuristico().getCodigo_paquete());
+                                                tipo="Paquete Turistico";
                                             }
-                                            
+                                            String medioPago = venta.getMedioPago();
                                             
                                             int idVenta = venta.getNum_venta();%>
                                             <tr>
-                                                <td><%=fechaCorta.format(fechaVenta)%></td>
+                                                <td><%=idVenta%></td>
                                                 <td><%=cliente%></td>
+                                                <td><%=fechaCorta.format(fechaVenta)%></td>
+                                                <td><%=medioPago%></td>
+                                                <td><%=tipo%></td>
+                                                <td><%=descripcion%></td>
                                                 <td><%=empleado%></td>
                                                 <td><%=costoSP%></td>
                                                 

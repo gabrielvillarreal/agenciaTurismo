@@ -33,9 +33,7 @@ public class Servicio implements Serializable {
     @ManyToMany
     private List<PaqueteTuristico> listaPaquete;
     
-    @OneToMany
-    private List<Venta> venta;
-    
+       
 
     public Servicio() {
     }
@@ -50,12 +48,11 @@ public class Servicio implements Serializable {
         sb.append(", costo_servicio=").append(costo_servicio);
         sb.append(", fecha_servicio=").append(fecha_servicio);
         sb.append(", listaPaquete=").append(listaPaquete);
-        sb.append(", venta=").append(venta);
         sb.append('}');
         return sb.toString();
     }
 
-    public Servicio(int codigo_servicio, String nombre, String descripcion_breve, String destino_servicio, double costo_servicio, Date fecha_servicio, List<PaqueteTuristico> listaPaquete, List<Venta> venta) {
+    public Servicio(int codigo_servicio, String nombre, String descripcion_breve, String destino_servicio, double costo_servicio, Date fecha_servicio, List<PaqueteTuristico> listaPaquete) {
         this.codigo_servicio = codigo_servicio;
         this.nombre = nombre;
         this.descripcion_breve = descripcion_breve;
@@ -63,7 +60,7 @@ public class Servicio implements Serializable {
         this.costo_servicio = costo_servicio;
         this.fecha_servicio = fecha_servicio;
         this.listaPaquete = listaPaquete;
-        this.venta = venta;
+        
     }
 
     public int getCodigo_servicio() {
@@ -122,12 +119,6 @@ public class Servicio implements Serializable {
         this.listaPaquete = listaPaquete;
     }
 
-    public List<Venta> getVenta() {
-        return venta;
-    }
-
-    public void setVenta(List<Venta> venta) {
-        this.venta = venta;
-    }
+   
     
 }
