@@ -4,7 +4,7 @@
     Author     : villa
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link  rel="icon"   href="../images/icon/ola.png" type="image/png" />
 
     <!-- Title Page-->
     <title>Dream travel</title>
@@ -69,36 +69,34 @@
                     </div>
                     <nav class="navbar-sidebar2">
                         <ul class="list-unstyled navbar__list">
-
                             <li>
                                 <a href="../index.jsp">
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
-
-
+                                
+                           
                             <li>
-                                <a href="./listadoClientes.jsp">
+                                <a href="../pages/listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
                             
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
-
                         </ul>
                     </nav>
                 </div>
@@ -154,26 +152,26 @@
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
                                 
                            
                             <li>
-                                <a href="./listadoClientes.jsp">
+                                <a href="../pages/listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
                             
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
@@ -264,7 +262,7 @@
                     
                     
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary ">Aceptar</button>
+                        <button type="submit" class="btn btn-primary " onclick="validar()">Aceptar</button>
                     </div>
                   </form>
                 </div>
@@ -278,7 +276,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright Â© <script>
+                                <p>Copyright © <script>
                   document.write(new Date().getFullYear())
                 </script> Cesar Gabriel Villarreal. All rights reserved. </p>
                             </div>
@@ -318,6 +316,27 @@
 
     <!-- Main JS-->
     <script src="../js/main.js"></script>
+    
+    <script>
+        function validar(){
+            var nombre= document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var direccion = document.getElementById("direccion").value;
+            var celular = document.getElementById("celular").value;
+            var email = document.getElementById("email").value;
+            var nacionalidad = document.getElementById("nacionalidad").value;
+            var fecha = document.getElementById("fecha").value;
+            var dni = document.getElementById("dni").value;
+            
+            
+
+            if( nombre ===""|| apellido==="" || direccion==="" || celular==="" || email==="" || nacionalidad==="" || dni==="" ){
+                alert("Ingrese el valor de todos los campos para poder ingresar el cliente correctamente");
+                event.preventDefault();
+            }
+        }
+    </script>
+    
 <%}%>
 </body>
 

@@ -11,7 +11,7 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.util.List"%>
 <%@page import="Logica.Controladora"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +19,7 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link  rel="icon"   href="../images/icon/ola.png" type="image/png" />
 
     <!-- Title Page-->
     <title>Dream travel</title>
@@ -74,38 +74,36 @@
                             <button class="btn-sm btn-info" type="submit">Cerrar Sesion</button>
                         </form>
                     </div>
-                    <nav class="navbar-sidebar2">
+                   <nav class="navbar-sidebar2">
                         <ul class="list-unstyled navbar__list">
-
                             <li>
                                 <a href="../index.jsp">
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
-
-
+                                
+                           
                             <li>
-                                <a href="./listadoClientes.jsp">
+                                <a href="../pages/listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
                             
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
-
                         </ul>
                     </nav>
                 </div>
@@ -161,26 +159,26 @@
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
                                 
                            
                             <li>
-                                <a href="./listadoClientes.jsp">
+                                <a href="../pages/listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
                             
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
@@ -263,7 +261,11 @@
                                             String direccion =  empleado.getDireccion();
                                             String dni = empleado.getDni();
                                             Date fecha = empleado.getFecha_nac();
-                                            SimpleDateFormat fechaCorta =  new SimpleDateFormat("dd/MM/yyyy");
+                                            
+                                            SimpleDateFormat fechaCorta = new SimpleDateFormat("dd/MM/yyyy"); 
+                                            String fechaComoCadena = fechaCorta.format(fecha);
+                                            
+                                            
                                             String nacionalidad = empleado.getNacionalidad();
                                             String celular = empleado.getCelular();
                                             String email = empleado.getEmail();
@@ -280,7 +282,7 @@
                                                 <td><%=apellido%></td>
                                                 <td><%=direccion%></td>
                                                 <td><%=dni%></td>
-                                                <td><%=fechaCorta.format(fecha)%></td>
+                                                <td><%=fechaComoCadena%></td>
                                                 <td><%=nacionalidad%></td>
                                                 <td><%=celular%></td>
                                                 <td><%=email%></td>
@@ -320,7 +322,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright Â© <script>
+                                <p>Copyright © <script>
                   document.write(new Date().getFullYear())
                 </script> Cesar Gabriel Villarreal. All rights reserved. </p>
                             </div>

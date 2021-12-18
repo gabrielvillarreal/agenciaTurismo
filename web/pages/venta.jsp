@@ -20,7 +20,7 @@
    <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link  rel="icon"   href="../images/icon/ola.png" type="image/png" />
 
     <!-- Title Page-->
     <title>Dream travel</title>
@@ -161,26 +161,26 @@
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
                                 
                            
                             <li>
-                                <a href="./listadoClientes.jsp">
+                                <a href="../pages/listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
                             
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             

@@ -7,7 +7,7 @@
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="Logica.Cliente"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link  rel="icon"   href="../images/icon/ola.png" type="image/png" />
 
     <!-- Title Page-->
     <title>Dream travel</title>
@@ -72,36 +72,34 @@
                     </div>
                     <nav class="navbar-sidebar2">
                         <ul class="list-unstyled navbar__list">
-
                             <li>
                                 <a href="../index.jsp">
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
-
-
-                            <li>
-                                <a href="./listadoClientes.jsp">
-                                    <i class="fas fa-users"></i>Clientes</a>
-                            </li>
+                                
                            
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoClientes.jsp">
+                                    <i class="fas fa-users"></i>Clientes</a>
+                            </li>
+                            
+                            <li>
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
-
                         </ul>
                     </nav>
                 </div>
@@ -157,26 +155,26 @@
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
                                 
                            
                             <li>
-                                <a href="./listadoClientes.jsp">
+                                <a href="../pages/listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
                             
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
@@ -225,7 +223,7 @@
           <div class="card my-4">
             <div class="card-header">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h1 class="text-dark text-capitalize ps-3">Cliente</h1>
+                <h1 class="text-dark text-capitalize ps-3">Modificar Cliente</h1>
               </div>
             </div>
               <div class="card-body">
@@ -240,41 +238,43 @@
                     %>
                     <div class="form-group">
                        <input type="hidden" name="id" value="<%=id%>" >
-                      <input type="text" name="nombre" class="form-control" value="<%=cliente.getNombre()%>">
+                       <label for="nombre" class="pr-1  form-control-label">Nombre </label>
+                      <input id="nombre" type="text" name="nombre" class="form-control" value="<%=cliente.getNombre()%>">
                     </div>
                     <div class="form-group">
-                      <input type="text" name="apellido" class="form-control" value="<%=cliente.getApellido()%>">
+                        <label for="apellido" class="pr-1  form-control-label">Apellido </label>
+                      <input id="apellido" type="text" name="apellido" class="form-control" value="<%=cliente.getApellido()%>">
                     </div>
                     <div class="form-group">
-                      
-                      <input type="text" name="direccion" class="form-control" value="<%=cliente.getDireccion()%>">
+                      <label for="direccion" class="pr-1  form-control-label">Dirección </label>
+                      <input id="direccion" type="text" name="direccion" class="form-control" value="<%=cliente.getDireccion()%>">
                     </div>
                     <div class="form-group">
-                      
-                      <input type="text" name="dni" class="form-control" value="<%=cliente.getDni()%>">
+                      <label for="dni" class="pr-1  form-control-label">DNI </label>
+                      <input id="dni" type="text" name="dni" class="form-control" value="<%=cliente.getDni()%>">
                     </div>
                     <div class="form-group">
-                      
-                      <input type="text" name="fecha" class="form-control" value="<%=fechaCorta.format(fecha)%>">
+                      <label for="fecha" class="pr-1  form-control-label">Fecha de Nacimiento </label>
+                      <input id="fecha" type="text" name="fecha" class="form-control" value="<%=fechaCorta.format(fecha)%>">
                     </div>
                     <div class="form-group">
-                        
-                      <input type="text" name="nacionalidad" class="form-control" value="<%=cliente.getNacionalidad()%>">
+                        <label for="nacionalidad" class="pr-1  form-control-label">Nacionalidad </label>
+                      <input id="nacionalidad" type="text" name="nacionalidad" class="form-control" value="<%=cliente.getNacionalidad()%>">
                     </div>
                     <div class="form-group">
-                      
-                      <input type="text" name="celular" class="form-control" value="<%=cliente.getCelular()%>">
+                      <label for="celular" class="pr-1  form-control-label">Teléfono Celular </label>
+                      <input id="celular" type="text" name="celular" class="form-control" value="<%=cliente.getCelular()%>">
                     </div>
                      <div class="form-group">
-                      
-                      <input type="text" name="email" class="form-control" value="<%=cliente.getEmail()%>">
+                      <label for="email" class="pr-1  form-control-label">Email </label>
+                      <input id="email" type="text" name="email" class="form-control" value="<%=cliente.getEmail()%>">
                     </div>
                     
                       
                     
                     
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary ">Modificar</button>
+                        <button type="submit" class="btn btn-primary " onclick="validar()">Modificar</button>
                     </div>
                   </form>
                 </div>
@@ -288,7 +288,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright Â© <script>
+                                <p>Copyright © <script>
                   document.write(new Date().getFullYear())
                 </script> Cesar Gabriel Villarreal. All rights reserved. </p>
                             </div>
@@ -328,6 +328,24 @@
 
     <!-- Main JS-->
     <script src="../js/main.js"></script>
+    
+    <script>
+        function validar(){
+            var nombre= document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var direccion = document.getElementById("direccion").value;
+            var celular = document.getElementById("celular").value;
+            var email = document.getElementById("email").value;
+            var nacionalidad = document.getElementById("nacionalidad").value;
+            var fecha = document.getElementById("fecha").value;
+            var dni = document.getElementById("dni").value;
+            if( nombre ===""|| apellido==="" || direccion==="" || celular==="" || email==="" || nacionalidad==="" || dni==="" ){
+                alert("Ingrese el valor de todos los campos para poder ingresar el cliente correctamente");
+                event.preventDefault();
+            }
+        }
+    </script>
+    
 <%}%>
 </body>
 

@@ -93,10 +93,7 @@
                             <a href="./pages/listadoClientes.jsp">
                                 <i class="fas fa-users"></i>Clientes</a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                        </li>
+                        
                         <li>
                             <a href="./pages/listadoEmpleados.jsp">
                                 <i class="fas fa-user"></i>Empleado</a>
@@ -152,33 +149,30 @@
                     <nav class="navbar-sidebar2">
                         <ul class="list-unstyled navbar__list">
                             <li>
-                                <a href="index.html">
+                                <a href="./index.jsp">
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="index2.html">
+                                <a href="./pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="index3.html">
+                                <a href="./pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="index4.html">
+                                <a href="./pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
                                 
                            
                             <li>
-                                <a href="inbox.html">
+                                <a href="./pages/listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
+                            
                             <li>
-                                <a href="inbox.html">
-                                    <i class="fas fa-dollar-sign"></i>Metodos de Pago</a>
-                            </li>
-                            <li>
-                                <a href="inbox.html">
+                                <a href="./pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
@@ -188,33 +182,7 @@
             </aside>
             <!-- END HEADER DESKTOP-->
 
-            <!-- BREADCRUMB-->
-            <section class="au-breadcrumb m-t-75">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="au-breadcrumb-content">
-                                    <div class="au-breadcrumb-left">
-                                        <span class="au-breadcrumb-span">Ud esta aqui:</span>
-                                        <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                            <li class="list-inline-item active">
-                                                <a href="#">Inicio</a>
-                                            </li>
-                                            <li class="list-inline-item seprate">
-                                                <span>/</span>
-                                            </li>
-                                            <li class="list-inline-item">Inicio</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- END BREADCRUMB-->
-            
+           
             
             <div class="main-content">
                 <div class="section__content section__content--p30">

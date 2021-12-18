@@ -162,7 +162,7 @@ public class Controladora {
         empleado.setDireccion(direccion);
         empleado.setDni(dni);
         empleado.setNacionalidad(nacionalidad);
-        Date fecha_Nac = new Date(fechaNac);
+        Date fecha_Nac = new Date (fechaNac);
         empleado.setFecha_nac(fecha_Nac);
         empleado.setCelular(celular);
         empleado.setEmail(email);

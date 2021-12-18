@@ -4,7 +4,7 @@
     Author     : villa
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link  rel="icon"   href="../images/icon/ola.png" type="image/png" />
 
     <!-- Title Page-->
     <title>Dream travel</title>
@@ -67,38 +67,36 @@
                             <button class="btn-sm btn-info" type="submit">Cerrar Sesion</button>
                         </form>
                     </div>
-                    <nav class="navbar-sidebar2">
+                   <nav class="navbar-sidebar2">
                         <ul class="list-unstyled navbar__list">
-
                             <li>
                                 <a href="../index.jsp">
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
-
-
+                                
+                           
                             <li>
-                                <a href="./listadoClientes.jsp">
+                                <a href="../pages/listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
                             
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
-
                         </ul>
                     </nav>
                 </div>
@@ -154,26 +152,26 @@
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
                                 
                            
                             <li>
-                                <a href="./listadoClientes.jsp">
+                                <a href="../pages/listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
                             
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
@@ -216,7 +214,7 @@
             </section>
             <!-- END BREADCRUMB-->
             
-    <div class="container-fluid py-4">
+    <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
@@ -227,60 +225,69 @@
             </div>
               <div class="card-body">
                   <form action="../SvEmpleado" method="POST" >
-                    <div class="form-group">
-                      <label for="nombre" class="pr-1  form-control-label">Nombre </label>
-                      <input type="text" id="nombre" name="nombre" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="apellido" class="pr-1  form-control-label">Apellido </label>
-                      <input type="text" id="apellido" name="apellido" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="direccion" class="pr-1  form-control-label">Direccion </label>
-                      <input type="text" id="direccion" name="direccion" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="dni" class="pr-1  form-control-label">DNI</label>
-                      <input type="text" id="dni" name="dni" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="nacionalidad" class="pr-1  form-control-label">Nacionalidad</label>
-                      <input type="text" id="nacionalidad" name="nacionalidad" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="fecha" class="pr-1  form-control-label">fecha de Nacimiento</label>
-                      <input type="text" id="fecha" name="fecha" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="celular" class="pr-1  form-control-label">Telefono celular</label>
-                      <input type="text" id="celular" name="celular" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="email" class="pr-1  form-control-label">E-mail</label>
-                      <input type="text" id="email" name="email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="cargo" class="pr-1  form-control-label">Cargo</label>
-                      <input type="text" id="cargo" name="cargo" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="sueldo" class="pr-1  form-control-label">Sueldo</label>
-                      <input type="text" id="sueldo" name="sueldo" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="usuario" class="pr-1  form-control-label">usuario</label>
-                      <input type="text" id="usuario" name="usuario" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="password" class="pr-1  form-control-label">Password</label>
-                      <input type="password" id="password" name="password" class="form-control">
-                    </div>  
-                    
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                              <label for="nombre" class="pr-1  form-control-label">Nombre </label>
+                              <input type="text" id="nombre" name="nombre" class="form-control">
+                          </div>
+                          <div class="form-group col-md-6 ">
+                              <label for="apellido" class="pr-1  form-control-label">Apellido </label>
+                              <input type="text" id="apellido" name="apellido" class="form-control">
+                          </div>
+                      </div>
+                      <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="direccion" class="pr-1  form-control-label">Direccion </label>
+                              <input type="text" id="direccion" name="direccion" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3">
+                              <label for="dni" class="pr-1  form-control-label">DNI</label>
+                              <input type="text" id="dni" name="dni" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3">
+                              <label for="nacionalidad" class="pr-1  form-control-label">Nacionalidad</label>
+                              <input type="text" id="nacionalidad" name="nacionalidad" class="form-control">
+                            </div>
+                      </div>
+                      <div class="form-row">
+                            <div class="form-group col-md-4">
+                              <label for="fecha" class="pr-1  form-control-label">fecha de Nacimiento</label>
+                              <input type="text" id="fecha" name="fecha" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="celular" class="pr-1  form-control-label">Telefono celular</label>
+                              <input type="tel" id="celular" name="celular" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="email" class="pr-1  form-control-label">E-mail</label>
+                              <input type="email" id="email" name="email" class="form-control">
+                            </div>
+                      </div>
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                              <label for="cargo" class="pr-1  form-control-label">Cargo</label>
+                              <input type="text" id="cargo" name="cargo" class="form-control">
+                          </div>
+                          <div class="form-group col-md-6">
+                              <label for="sueldo" class="pr-1  form-control-label">Sueldo</label>
+                              <input type="text" id="sueldo" name="sueldo" class="form-control">
+                          </div>
+                      </div>
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                              <label for="usuario" class="pr-1  form-control-label">usuario</label>
+                              <input type="text" id="usuario" name="usuario" class="form-control">
+                          </div>
+                          <div class="form-group col-md-6">
+                              <label for="password" class="pr-1  form-control-label">Password</label>
+                              <input type="password" id="password" name="password" class="form-control">
+                          </div>  
+                      </div>
                       
                     
                     
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary ">Aceptar</button>
+                        <button type="submit" class="btn btn-primary " onclick="validar()" >Aceptar</button>
                     </div>
                   </form>
                 </div>
@@ -294,7 +301,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright Â© <script>
+                                <p>Copyright © <script>
                   document.write(new Date().getFullYear())
                 </script> Cesar Gabriel Villarreal. All rights reserved. </p>
                             </div>
@@ -334,6 +341,34 @@
 
     <!-- Main JS-->
     <script src="../js/main.js"></script>
+    
+     <script>
+        function validar(){
+            var user = document.getElementById("usuario").value;
+            var pwd = document.getElementById("password").value;
+            var nombre= document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var direccion = document.getElementById("direccion").value;
+            var celular = document.getElementById("celular").value;
+            var email = document.getElementById("email").value;
+            var nacionalidad = document.getElementById("nacionalidad").value;
+            var fecha = document.getElementById("fecha").value;
+            var dni = document.getElementById("dni").value;
+            var cargo = document.getElementById("cargo").value;
+            var sueldo = document.getElementById("sueldo").value;
+            
+
+            if( user ==="" || pwd ==="" || nombre ===""|| apellido==="" || direccion==="" || celular==="" || email==="" || nacionalidad==="" || dni==="" || cargo==="" || sueldo===""){
+                alert("Ingrese el valor de todos los campos para poder ingresar el empleado correctamente");
+                event.preventDefault();
+            }
+            
+            
+        
+        
+        }
+    </script>
+    
 <%}%>
 </body>
 

@@ -4,7 +4,7 @@
     Author     : villa
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
-
+    <link  rel="icon"   href="../images/icon/ola.png" type="image/png" />
     <!-- Title Page-->
     <title>Login</title>
 
@@ -56,17 +56,17 @@
                             
                         </div>
                         <div class="login-form">
-                            <form action="../SvUsuario" method="post">
+                            <form action="../SvUsuario" method="post"> <!--<form action="../SvUsuario" method="post"  >-->
                                 <div class="form-group">
                                     <label>Usuario</label>
-                                    <input class="au-input au-input--full" type="text" name="usuario" placeholder="Usuario">
+                                    <input id="user" class="au-input au-input--full" type="text" name="usuario" placeholder="Usuario">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="ContraseÃ±a">
+                                    <input id="pwd" class="au-input au-input--full" type="password" name="password" placeholder="Contraseña">
                                 </div>
                                 
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" onclick="validar()">sign in</button>
                                 
                             </form>
                             <div class="register-link  ">
@@ -83,6 +83,21 @@
 
     </div>
 
+    <script>
+        function validar(){
+            var user = document.getElementById("user").value;
+            var pwd = document.getElementById("pwd").value;
+            
+            if(user =="" || pwd ==""){
+                alert("Ingrese los datos para autenticar el usuario");
+                window.location.replace("./pages/sign-in.jsp");
+            }
+        
+        
+        }
+    </script>
+    
+    
     <!-- Jquery JS-->
     <script src="../vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->

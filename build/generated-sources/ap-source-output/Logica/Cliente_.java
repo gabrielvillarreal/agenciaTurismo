@@ -1,18 +1,15 @@
 package Logica;
 
-import Logica.Venta;
 import java.util.Date;
 import javax.annotation.Generated;
-import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2021-12-14T16:37:37")
+@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2021-12-17T20:45:36")
 @StaticMetamodel(Cliente.class)
 public class Cliente_ { 
 
     public static volatile SingularAttribute<Cliente, Date> fecha_nac;
-    public static volatile ListAttribute<Cliente, Venta> venta;
     public static volatile SingularAttribute<Cliente, Integer> id_cliente;
     public static volatile SingularAttribute<Cliente, String> apellido;
     public static volatile SingularAttribute<Cliente, String> direccion;

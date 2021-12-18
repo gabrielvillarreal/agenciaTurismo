@@ -7,16 +7,16 @@
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="Logica.Servicio"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link  rel="icon"   href="../images/icon/ola.png" type="image/png" />
 
     <!-- Title Page-->
     <title>Dream travel</title>
@@ -70,38 +70,36 @@
                             <button class="btn-sm btn-info" type="submit">Cerrar Sesion</button>
                         </form>
                     </div>
-                    <nav class="navbar-sidebar2">
+                   <nav class="navbar-sidebar2">
                         <ul class="list-unstyled navbar__list">
-
                             <li>
                                 <a href="../index.jsp">
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
-
-
-                            <li>
-                                <a href="./listadoClientes.jsp">
-                                    <i class="fas fa-users"></i>Clientes</a>
-                            </li>
+                                
                            
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoClientes.jsp">
+                                    <i class="fas fa-users"></i>Clientes</a>
+                            </li>
+                            
+                            <li>
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
-
                         </ul>
                     </nav>
                 </div>
@@ -150,33 +148,33 @@
                             </form>
                             
                         </div>
-                    <nav class="navbar-sidebar2">
+                   <nav class="navbar-sidebar2">
                         <ul class="list-unstyled navbar__list">
                             <li>
                                 <a href="../index.jsp">
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
                                 
                            
                             <li>
-                                <a href="./listadoClientes.jsp">
+                                <a href="../pages/listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
                             
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
@@ -223,9 +221,9 @@
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="card-header">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Editar Servicio</h6>
+                <h1 class="text-dark text-capitalize ps-3">Modificar Servicio</h1>
               </div>
             </div>
               <div class="card-body">
@@ -245,7 +243,7 @@
                           <option value="Hotel por noche/s">Hotel por noche/s</option>
                           <option value="Alquiler de auto">Alquiler de auto</option>
                           <option value="Pasajes de colectivo">Pasajes de colectivo</option>
-                          <option value="Pasajes de aviÃ³n">Pasajes de aviÃ³n</option>
+                          <option value="Pasajes de avión">Pasajes de avión</option>
                           <option value="Pasajes de tren">Pasajes de tren</option>
                           <option value="Excursiones">Excursiones</option>
                           <option value="Entradas a Eventos">Entradas a Eventos</option>
@@ -255,21 +253,21 @@
                     
                     
                     
-                    <div class="input-group input-group-outline mb-3">
-                      
-                      <input type="text" name="descripcion" class="form-control" value="<%=servicio.getDescripcion_breve()%>">
+                    <div class="form-group">
+                      <label for="descripcion" class="pr-1  form-control-label">Descripción </label>
+                      <input id="descripcion" type="text" name="descripcion" class="form-control" value="<%=servicio.getDescripcion_breve()%>">
                     </div>
-                    <div class="input-group input-group-outline mb-3">
-                      
-                      <input type="text" name="destino" class="form-control" value="<%=servicio.getDestino_servicio()%>">
+                    <div class="form-group">
+                      <label for="destino" class="pr-1  form-control-label">Destino</label>
+                      <input id="destino" type="text" name="destino" class="form-control" value="<%=servicio.getDestino_servicio()%>">
                     </div>
-                    <div class="input-group input-group-outline mb-3">
-                      
-                      <input type="text" name="fecha" class="form-control" value="<%=fechaCorta.format(fecha)%>">
+                    <div class="form-group">
+                      <label for="fecha" class="pr-1  form-control-label">Fecha</label>
+                      <input id="fecha" type="text" name="fecha" class="form-control" value="<%=fechaCorta.format(fecha)%>">
                     </div>
-                    <div class="input-group input-group-outline mb-3">
-                      
-                      <input type="text" name="costo" class="form-control" value="<%=servicio.getCosto_servicio()%>">
+                    <div class="form-group">
+                      <label for="costo" class="pr-1  form-control-label">Costo</label>
+                      <input id="costo" type="text" name="costo" class="form-control" value="<%=servicio.getCosto_servicio()%>">
                     </div>
                      
                     
@@ -277,7 +275,7 @@
                    
                     
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Modificar</button>
+                      <button type="submit" class="btn btn-primary" onclick="validar()">Modificar</button>
                     </div>
                   </form>
                 </div>
@@ -291,7 +289,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright Â© <script>
+                                <p>Copyright © <script>
                   document.write(new Date().getFullYear())
                 </script> Cesar Gabriel Villarreal. All rights reserved. </p>
                             </div>
@@ -331,6 +329,19 @@
 
     <!-- Main JS-->
     <script src="../js/main.js"></script>
+    <script>
+        function validar(){
+            var descripcion = document.getElementById("descripcion").value;
+            var destino = document.getElementById("destino").value;
+            var fecha = document.getElementById("fecha").value;
+            var costo = document.getElementById("costo").value;
+           
+            if(  descripcion==="" || destino==="" || fecha==="" || costo==="" ){
+                alert("Ingrese el valor de todos los campos para poder ingresar el Servicio correctamente");
+                event.preventDefault();
+            }
+        }
+    </script>
 <%}%>
 </body>
 

@@ -13,7 +13,7 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link  rel="icon"   href="../images/icon/ola.png" type="image/png" />
 
     <!-- Title Page-->
     <title>Dream travel</title>
@@ -69,36 +69,34 @@
                     </div>
                     <nav class="navbar-sidebar2">
                         <ul class="list-unstyled navbar__list">
-
                             <li>
                                 <a href="../index.jsp">
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
-
-
+                                
+                           
                             <li>
-                                <a href="./listadoClientes.jsp">
+                                <a href="../pages/listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
                             
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
-
                         </ul>
                     </nav>
                 </div>
@@ -154,26 +152,26 @@
                                     <i class="fas fa-home"></i>Inicio</a>
                             </li>
                             <li>
-                                <a href="./listadoVentas.jsp">
+                                <a href="../pages/listadoVentas.jsp">
                                     <i class="fas fa-shopping-basket"></i>Ventas</a>
                             </li>
                             <li>
-                                <a href="./listadoPaquetes.jsp">
+                                <a href="../pages/listadoPaquetes.jsp">
                                     <i class="fas fa-clipboard-list"></i>Paquetes Turisticos</a>
                             </li>
                             <li>
-                                <a href="./listadoServicios.jsp">
+                                <a href="../pages/listadoServicios.jsp">
                                     <i class="fas fa-clipboard-check"></i>Servicio</a>
                             </li>
                                 
                            
                             <li>
-                                <a href="./listadoClientes.jsp">
+                                <a href="../pages/listadoClientes.jsp">
                                     <i class="fas fa-users"></i>Clientes</a>
                             </li>
                             
                             <li>
-                                <a href="./listadoEmpleados.jsp">
+                                <a href="../pages/listadoEmpleados.jsp">
                                     <i class="fas fa-user"></i>Empleado</a>
                             </li>
                             
@@ -243,19 +241,19 @@
                       <br>  
                     <div class="form-group">
                       <label for="descripcion" class="pr-1  form-control-label">Descripción </label>
-                      <input type="text" id="descripcion" name="descripcion" class="form-control">
+                      <input id="descripcion" type="text" id="descripcion" name="descripcion" class="form-control">
                     </div>
                     <div class="form-group">
                       <label for="destino" class="pr-1  form-control-label">Destino</label>
-                      <input type="text" id="destino" name="destino" class="form-control">
+                      <input id="destino" type="text" id="destino" name="destino" class="form-control">
                     </div>
                     <div class="form-group">
                       <label for="fecha" class="pr-1  form-control-label">Fecha</label>
-                      <input type="text" id="fecha" name="fecha" class="form-control">
+                      <input id="fecha" type="text" id="fecha" name="fecha" class="form-control">
                     </div>
                     <div class="form-group">
                       <label for="costo" class="pr-1  form-control-label">Costo</label>
-                      <input type="text" id="costo" name="costo" class="form-control">
+                      <input id="costo" type="text" id="costo" name="costo" class="form-control">
                     </div>
                      
                     
@@ -263,7 +261,7 @@
                    
                     
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary btn-lg w-10 mt-4 mb-0">Aceptar</button>
+                        <button type="submit" class="btn btn-primary btn-lg w-10 mt-4 mb-0" onclick="validar()">Aceptar</button>
                     </div>
                   </form>
                 </div>
@@ -317,6 +315,19 @@
 
     <!-- Main JS-->
     <script src="../js/main.js"></script>
+    <script>
+        function validar(){
+            var descripcion = document.getElementById("descripcion").value;
+            var destino = document.getElementById("destino").value;
+            var fecha = document.getElementById("fecha").value;
+            var costo = document.getElementById("costo").value;
+           
+            if(  descripcion==="" || destino==="" || fecha==="" || costo==="" ){
+                alert("Ingrese el valor de todos los campos para poder ingresar el Servicio correctamente");
+                event.preventDefault();
+            }
+        }
+    </script>
 <%}%>
 </body>
 
