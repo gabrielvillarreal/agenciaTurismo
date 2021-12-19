@@ -14,6 +14,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import static java.util.Objects.isNull;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,9 +51,17 @@ public class SvEditarServicio extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String destino = request.getParameter("destino");
         Double costo = Double.parseDouble(request.getParameter("costo"));
-        String fecha =  request.getParameter("fecha");
+        String fecha = request.getParameter("fecha");        
+        DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date dateF=null;
+        try {
+             dateF = sourceFormat.parse(fecha);
+        } catch (ParseException ex) {
+            Logger.getLogger(SvEditarServicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        control.modificarServicio(id,nombre,descripcion,destino,costo,fecha);
+        
+        control.modificarServicio(id,nombre,descripcion,destino,costo,dateF);
         
         request.getSession().setAttribute("listaServicios", control.traerServicios());
         

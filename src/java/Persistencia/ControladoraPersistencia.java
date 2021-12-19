@@ -190,5 +190,13 @@ public class ControladoraPersistencia {
         ventaJPA.create(ventas);
     }
 
+    public void borrarUsuario(int idUsuario) {
+        try {
+            usuarioJPA.destroy(idUsuario);
+        } catch (NonexistentEntityException ex) {
+            ex.printStackTrace(System.out);
+        }
+    }
+
     
 }

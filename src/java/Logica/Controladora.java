@@ -57,7 +57,7 @@ public class Controladora {
         }
     }
 
-    public void crearServicio(String nombre, String descripcion, String destino, Double costo, String fecha) {
+    public void crearServicio(String nombre, String descripcion, String destino, Double costo, Date fecha) {
         
         
         
@@ -66,8 +66,7 @@ public class Controladora {
         servicio.setDescripcion_breve(descripcion);
         servicio.setDestino_servicio(destino);
         servicio.setCosto_servicio(costo);
-        Date fecha_servicio = new Date (fecha);
-        servicio.setFecha_servicio(fecha_servicio);
+        servicio.setFecha_servicio(fecha);
         
         controlPersistencia.crearServicio(servicio);
         
@@ -83,26 +82,14 @@ public class Controladora {
         controlPersistencia.borrarServicio(id);
     }
 
-    public void modificarServicio(int id, String nombre, String descripcion, String destino, Double costo, String fecha) {
+    public void modificarServicio(int id, String nombre, String descripcion, String destino, Double costo, Date fecha) {
        
         Servicio servicio = controlPersistencia.buscarServicios(id);
         servicio.setDescripcion_breve(descripcion);
         servicio.setCosto_servicio(costo);
         servicio.setDestino_servicio(destino);
         
-        /*DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        Date fecha_servicio;
-        try {
-            fecha_servicio = df.parse(fecha);
-        } catch (ParseException ex) {
-            Logger.getLogger(Controladora.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        fecha_servicio = deStringToDate(fecha);*/
-        SimpleDateFormat fechaCorta =  new SimpleDateFormat("dd/MM/yyyy");
-        Date fecha_servicio = new Date (fecha);
-        fechaCorta.format(fecha_servicio);
-        
-        servicio.setFecha_servicio(fecha_servicio);
+        servicio.setFecha_servicio(fecha);
         servicio.setNombre(nombre);
         
         controlPersistencia.modificarServicio(servicio);
@@ -113,15 +100,14 @@ public class Controladora {
         return controlPersistencia.buscarServicios(id);
     }
 
-    public void crearCliente(String nombre, String apellido, String direccion, String dni, String fechaNac, String nacionalidad, String celular, String email) {
+    public void crearCliente(String nombre, String apellido, String direccion, String dni, Date fechaNac, String nacionalidad, String celular, String email) {
          Cliente cliente = new Cliente();
         cliente.setNombre(nombre);
         cliente.setApellido(apellido);
         cliente.setDireccion(direccion);
         cliente.setDni(dni);
         cliente.setNacionalidad(nacionalidad);
-        Date fecha_Nac = new Date (fechaNac);
-        cliente.setFecha_nac(fecha_Nac);
+        cliente.setFecha_nac(fechaNac);
         cliente.setCelular(celular);
         cliente.setEmail(email);
         
@@ -132,19 +118,14 @@ public class Controladora {
         controlPersistencia.borrarCliente(id);
     }
 
-    public void modificarCliente(int id, String nombre, String apellido, String direccion, String dni, String fechaNac, String nacionalidad, String celular, String email) {
+    public void modificarCliente(int id, String nombre, String apellido, String direccion, String dni, Date fechaNac, String nacionalidad, String celular, String email) {
         Cliente cliente = controlPersistencia.buscarCliente(id);
         cliente.setNombre(nombre);
         cliente.setApellido(apellido);
         cliente.setDireccion(direccion);
         cliente.setDni(dni);
         cliente.setNacionalidad(nacionalidad);
-        
-        SimpleDateFormat fechaCorta =  new SimpleDateFormat("dd/MM/yyyy");
-        Date fecha_nac = new Date (fechaNac);
-        fechaCorta.format(fecha_nac);
-        
-        cliente.setFecha_nac(fecha_nac);
+        cliente.setFecha_nac(fechaNac);
         cliente.setCelular(celular);
         cliente.setEmail(email);
         
@@ -155,15 +136,14 @@ public class Controladora {
         return controlPersistencia.buscarCliente(id);
     }
 
-    public void crearEmpleado(String nombre, String apellido, String direccion, String dni, String fechaNac, String nacionalidad, String celular, String email, String cargo, String sueldo, String nombreUsuario, String password) {
+    public void crearEmpleado(String nombre, String apellido, String direccion, String dni, Date fechaNac, String nacionalidad, String celular, String email, String cargo, String sueldo, String nombreUsuario, String password) {
         Empleado empleado = new Empleado();
         empleado.setNombre(nombre);
         empleado.setApellido(apellido);
         empleado.setDireccion(direccion);
         empleado.setDni(dni);
         empleado.setNacionalidad(nacionalidad);
-        Date fecha_Nac = new Date (fechaNac);
-        empleado.setFecha_nac(fecha_Nac);
+        empleado.setFecha_nac(fechaNac);
         empleado.setCelular(celular);
         empleado.setEmail(email);
         empleado.setCargo(cargo);
@@ -189,7 +169,7 @@ public class Controladora {
         return controlPersistencia.buscarEmpleado(id);
     }
 
-    public void modificarEmpleado(int id, String nombre, String apellido, String direccion, String dni, String fechaNac, String nacionalidad, String celular, String email,String cargo, String sueldo, String nombreUsuario, String password, int idUsuario) {
+    public void modificarEmpleado(int id, String nombre, String apellido, String direccion, String dni, Date fechaNac, String nacionalidad, String celular, String email,String cargo, String sueldo, String nombreUsuario, String password, int idUsuario) {
         Empleado empleado = controlPersistencia.buscarEmpleado(id);
         empleado.setNombre(nombre);
         empleado.setApellido(apellido);
@@ -197,11 +177,7 @@ public class Controladora {
         empleado.setDni(dni);
         empleado.setNacionalidad(nacionalidad);
         
-        SimpleDateFormat fechaCorta =  new SimpleDateFormat("dd/MM/yyyy");
-        Date fecha_nac = new Date (fechaNac);
-        fechaCorta.format(fecha_nac);
-        
-        empleado.setFecha_nac(fecha_nac);
+        empleado.setFecha_nac(fechaNac);
         empleado.setCelular(celular);
         empleado.setEmail(email);
         empleado.setCargo(cargo);
@@ -217,6 +193,8 @@ public class Controladora {
     }
 
     public void borrarEmpleado(int id) {
+        
+        
         controlPersistencia.borrarEmpleado(id);
     }
     
@@ -278,7 +256,7 @@ public class Controladora {
         return controlPersistencia.traerVentas();
     }
 
-    public void crearVenta( String idServicio, String idPaquete, String servOPaq, String idCliente, String idEmpleado, String medioPago, String fechaVenta) {
+    public void crearVenta( String idServicio, String idPaquete, String servOPaq, String idCliente, String idEmpleado, String medioPago, Date fechaVenta) {
         
         Empleado empleado = controlPersistencia.buscarEmpleado(Integer.parseInt(idEmpleado));
         Cliente cliente = controlPersistencia.buscarCliente(Integer.parseInt(idCliente));
@@ -295,21 +273,19 @@ public class Controladora {
         }
         
         venta.setMedioPago(medioPago);
-        SimpleDateFormat fecVenta = new SimpleDateFormat("dd/MM/yyyy");
-        Date fv = new Date();
-        try {
-            fv = fecVenta.parse(fechaVenta);
-        } catch (ParseException ex) {
-            ex.printStackTrace(System.out);
-        }
         
-        venta.setFecha_venta(fv);
+        
+        venta.setFecha_venta(fechaVenta);
         
         controlPersistencia.crearVenta(venta);
         
         
         
         
+    }
+
+    public void borrarUsuario(int idUsuario) {
+        controlPersistencia.borrarUsuario(idUsuario);
     }
 
     

@@ -7,6 +7,7 @@ package Servlet;
 
 import Logica.Controladora;
 import Logica.Empleado;
+import Logica.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.util.Objects.isNull;
@@ -15,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -48,9 +50,28 @@ public class SvEliminarEmpleado extends HttpServlet {
          int id = Integer.parseInt(request.getParameter("id"));
         Controladora control = new Controladora();
         
+        Usuario usuario = control.buscarUsuario(Integer.parseInt(request.getParameter("idUsuario")));
+        Empleado empleado = control.buscarEmpleado(Integer.parseInt(request.getParameter("id")));
+        int idUsuario = empleado.getUsuario().getId_usuario();
+                
+        System.out.println("id usuario:" + idUsuario);
+        System.out.println("idEmpleado" + id);
+        
+        HttpSession misession = request.getSession();
+        String pwd = (String) misession.getAttribute("password");
+        String user = (String) misession.getAttribute("usuario");
+        System.out.println("password: "+pwd + "user: " + user);
+        
         control.borrarEmpleado(id);
         
-        response.sendRedirect("./pages/listadoEmpleados.jsp");
+        control.borrarUsuario(idUsuario);
+        
+        //verifico si borro el usuario que esta logeado u otro user
+        if(user.equals(usuario.getUsuario()) && pwd.equals(usuario.getPassword())){
+            response.sendRedirect("./pages/sign-in.jsp");
+        }else{
+            response.sendRedirect("./pages/listadoEmpleados.jsp");
+        }
         
     }
 

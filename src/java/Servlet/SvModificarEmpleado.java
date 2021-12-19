@@ -11,6 +11,12 @@ import Logica.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,6 +51,17 @@ public class SvModificarEmpleado extends HttpServlet {
         String direccion = request.getParameter("direccion");
         String dni = request.getParameter("dni");
         String fechaNac = request.getParameter("fecha");
+        
+        String fecha = request.getParameter("fecha");        
+        DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date dateF=null;
+        try {
+             dateF = sourceFormat.parse(fecha);
+        } catch (ParseException ex) {
+            Logger.getLogger(SvEmpleado.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         String nacionalidad = request.getParameter("nacionalidad");
         String celular = request.getParameter("celular");
         String email = request.getParameter("email");
@@ -53,9 +70,8 @@ public class SvModificarEmpleado extends HttpServlet {
         String nombreUsuario = request.getParameter("nombreUsuario");
         String password= request.getParameter("password");
         int i = Integer.parseInt(request.getParameter("idUsuario"));
-        //Usuario usuario = control.buscarUsuario(parseInt(request.getParameter("idUsuario")));
-        //int idUsuario = usuario.getId_usuario();
-        control.modificarEmpleado(id, nombre,apellido,direccion,dni,fechaNac,nacionalidad,celular,email,cargo,sueldo,nombreUsuario,password, i);
+        
+        control.modificarEmpleado(id, nombre,apellido,direccion,dni,dateF,nacionalidad,celular,email,cargo,sueldo,nombreUsuario,password, i);
         
         request.getSession().setAttribute("listaEmpleados", control.traerEmpleados());
         

@@ -296,6 +296,7 @@
                                                     <div class="table-data-feature section__content">
                                                         <form name="frmBorrarEmpleado" action="../SvEliminarEmpleado" method="POST" style="display:inline">
                                                             <input type="hidden" name="id" value="<%=id%>" >
+                                                            <input type="hidden" name="idUsuario" value="<%=id_usuario%>" >
                                                             <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title data-original-title="Eliminar"><i class="zmdi zmdi-delete"></i></button>
                                                         </form>
                                                         <div class="pr-3"></div>    

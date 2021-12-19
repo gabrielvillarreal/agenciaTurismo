@@ -4,7 +4,12 @@ package Servlet;
 import Logica.Controladora;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,9 +45,17 @@ Controladora control = new Controladora();
         String nombre = request.getParameter("nombre");
         String destino = request.getParameter("destino");
         Double costo = Double.parseDouble(request.getParameter("costo"));
-        String fecha = request.getParameter("fecha");
+        String fecha = request.getParameter("fecha");        
+        DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date dateF=null;
+        try {
+             dateF = sourceFormat.parse(fecha);
+        } catch (ParseException ex) {
+            Logger.getLogger(SvServicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        control.crearServicio(nombre,descripcion,destino,costo,fecha);
+        
+        control.crearServicio(nombre,descripcion,destino,costo,dateF);
         
         response.sendRedirect("./pages/listadoServicios.jsp");
         

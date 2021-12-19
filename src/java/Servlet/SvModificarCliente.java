@@ -9,6 +9,12 @@ import Logica.Cliente;
 import Logica.Controladora;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,12 +50,20 @@ public class SvModificarCliente extends HttpServlet {
         String apellido = request.getParameter("apellido");
         String direccion = request.getParameter("direccion");
         String dni = request.getParameter("dni");
-        String fechaNac = request.getParameter("fecha");
+        
+        String fecha = request.getParameter("fecha");        
+        DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date dateF=null;
+        try {
+             dateF = sourceFormat.parse(fecha);
+        } catch (ParseException ex) {
+            Logger.getLogger(SvVenta.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String nacionalidad = request.getParameter("nacionalidad");
         String celular = request.getParameter("celular");
         String email = request.getParameter("email");
         
-        control.modificarCliente(id, nombre,apellido,direccion,dni,fechaNac,nacionalidad,celular,email);
+        control.modificarCliente(id, nombre,apellido,direccion,dni,dateF,nacionalidad,celular,email);
         
         request.getSession().setAttribute("listaClientes", control.traerClientes());
         

@@ -5,18 +5,26 @@
         <group>
             <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/pages/listadoPaquetes.jsp</file>
             <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/pages/modificarServicio.jsp</file>
-            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/pages/listadoClientes.jsp</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Servlet/SvModificarCliente.java</file>
             <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/pages/servicio.jsp</file>
-            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/conf/persistence.xml</file>
-            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/pages/listadoServicios.jsp</file>
-            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Persistencia/EmpleadoJpaController.java</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/pages/cliente.jsp</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/pages/sign-in.jsp</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/pages/modificarEmpleado.jsp</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Servlet/SvEmpleado.java</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Servlet/SvUsuario.java</file>
             <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/pages/paquete.jsp</file>
-            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Logica/Empleado.java</file>
-            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Logica/Servicio.java</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/pages/empleadoUser.jsp</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Servlet/SvEliminarEmpleado.java</file>
             <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Logica/Controladora.java</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Servlet/SvCliente.java</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Servlet/SvModificarEmpleado.java</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/pages/listadoEmpleados.jsp</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Servlet/SvServicio.java</file>
             <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Persistencia/ControladoraPersistencia.java</file>
-            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Logica/Cliente.java</file>
-            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Persistencia/ServicioJpaController.java</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Servlet/SvVenta.java</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/pages/empleado.jsp</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/web/index.jsp</file>
+            <file>file:/C:/Users/villa/Desktop/curso%20fullstack%20java/AgenciaTurismo/src/java/Servlet/SvEditarServicio.java</file>
         </group>
     </open-files>
 </project-private>

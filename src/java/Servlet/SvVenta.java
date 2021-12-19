@@ -8,7 +8,12 @@ package Servlet;
 import Logica.Controladora;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,7 +53,16 @@ public class SvVenta extends HttpServlet {
         String idCliente = request.getParameter("idCliente");
         String idEmpleado = request.getParameter("idEmpleado");
         String medioPago = request.getParameter("MedioPago");
-        String fechaVenta = request.getParameter("fechaVenta");
+        //String fechaVenta = request.getParameter("fechaVenta");
+        String fecha = request.getParameter("fechaVenta");        
+        DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date dateF=null;
+        try {
+             dateF = sourceFormat.parse(fecha);
+        } catch (ParseException ex) {
+            Logger.getLogger(SvVenta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         String servOPaq = request.getParameter("radios");
         System.out.println(servOPaq);
         
@@ -57,12 +71,9 @@ public class SvVenta extends HttpServlet {
         }else{
             servOPaq = "paquete";
         }
-            
-         
-        System.out.println(servOPaq + "servicio:" + idServicio + " paquete:" + idPaquete + " cliente:" + idCliente + " empleado:" + idEmpleado + " medioPago:" + medioPago + " fecha:" + fechaVenta);
         
         Controladora control = new Controladora();
-        control.crearVenta(idServicio,idPaquete,servOPaq,idCliente,idEmpleado, medioPago, fechaVenta);
+        control.crearVenta(idServicio,idPaquete,servOPaq,idCliente,idEmpleado, medioPago, dateF);
         
         response.sendRedirect("./pages/listadoVentas.jsp");
         
