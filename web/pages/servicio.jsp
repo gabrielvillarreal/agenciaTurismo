@@ -214,7 +214,7 @@
             </section>
             <!-- END BREADCRUMB-->
             
-    <div class="container-fluid py-4">
+    <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
@@ -231,7 +231,7 @@
                           <option value="Hotel por noche/s">Hotel por noche/s</option>
                           <option value="Alquiler de auto">Alquiler de auto</option>
                           <option value="Pasajes de colectivo">Pasajes de colectivo</option>
-                          <option value="Pasajes de avión">Pasajes de avión</option>
+                          <option value="Pasajes de avión">Pasajes de avion</option>
                           <option value="Pasajes de tren">Pasajes de tren</option>
                           <option value="Excursiones">Excursiones</option>
                           <option value="Entradas a Eventos">Entradas a Eventos</option>

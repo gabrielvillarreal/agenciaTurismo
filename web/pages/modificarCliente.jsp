@@ -217,7 +217,7 @@
             </section>
             <!-- END BREADCRUMB-->
             
-    <div class="container-fluid py-4">
+    <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
@@ -236,38 +236,47 @@
                         
                         
                     %>
-                    <div class="form-group">
-                       <input type="hidden" name="id" value="<%=id%>" >
-                       <label for="nombre" class="pr-1  form-control-label">Nombre </label>
-                      <input id="nombre" type="text" name="nombre" class="form-control" value="<%=cliente.getNombre()%>">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="hidden" name="id" value="<%=id%>" >
+                            <label for="nombre" class="pr-1  form-control-label">Nombre </label>
+                            <input id="nombre" type="text" name="nombre" class="form-control" value="<%=cliente.getNombre()%>">
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <label for="apellido" class="pr-1  form-control-label">Apellido </label>
+                            <input id="apellido" type="text" name="apellido" class="form-control" value="<%=cliente.getApellido()%>">
+                        </div>
+                    </div> 
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="direccion" class="pr-1  form-control-label">Dirección </label>
+                            <input id="direccion" type="text" name="direccion" class="form-control" value="<%=cliente.getDireccion()%>">
+                        </div>
+                         
+                        <div class="form-group col-md-3">
+                            <label for="dni" class="pr-1  form-control-label">DNI </label>
+                            <input id="dni" type="text" name="dni" class="form-control" value="<%=cliente.getDni()%>">
+                        </div>
+                         
+                        <div class="form-group col-md-3">
+                            <label for="nacionalidad" class="pr-1  form-control-label">Nacionalidad </label>
+                            <input id="nacionalidad" type="text" name="nacionalidad" class="form-control" value="<%=cliente.getNacionalidad()%>">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="apellido" class="pr-1  form-control-label">Apellido </label>
-                      <input id="apellido" type="text" name="apellido" class="form-control" value="<%=cliente.getApellido()%>">
-                    </div>
-                    <div class="form-group">
-                      <label for="direccion" class="pr-1  form-control-label">Dirección </label>
-                      <input id="direccion" type="text" name="direccion" class="form-control" value="<%=cliente.getDireccion()%>">
-                    </div>
-                    <div class="form-group">
-                      <label for="dni" class="pr-1  form-control-label">DNI </label>
-                      <input id="dni" type="text" name="dni" class="form-control" value="<%=cliente.getDni()%>">
-                    </div>
-                    <div class="form-group">
-                      <label for="fecha" class="pr-1  form-control-label">Fecha de Nacimiento </label>
-                      <input id="fecha" type="text" name="fecha" class="form-control" value="<%=fechaCorta.format(fecha)%>">
-                    </div>
-                    <div class="form-group">
-                        <label for="nacionalidad" class="pr-1  form-control-label">Nacionalidad </label>
-                      <input id="nacionalidad" type="text" name="nacionalidad" class="form-control" value="<%=cliente.getNacionalidad()%>">
-                    </div>
-                    <div class="form-group">
-                      <label for="celular" class="pr-1  form-control-label">Teléfono Celular </label>
-                      <input id="celular" type="text" name="celular" class="form-control" value="<%=cliente.getCelular()%>">
-                    </div>
-                     <div class="form-group">
-                      <label for="email" class="pr-1  form-control-label">Email </label>
-                      <input id="email" type="text" name="email" class="form-control" value="<%=cliente.getEmail()%>">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="fecha" class="pr-1  form-control-label">Fecha de Nacimiento </label>
+                            <input id="fecha" type="text" name="fecha" class="form-control" value="<%=fechaCorta.format(fecha)%>">
+                        </div>
+                        
+                        <div class="form-group col-md-4">
+                            <label for="celular" class="pr-1  form-control-label">Teléfono Celular </label>
+                            <input id="celular" type="text" name="celular" class="form-control" value="<%=cliente.getCelular()%>">
+                        </div>
+                         <div class="form-group col-md-4">
+                            <label for="email" class="pr-1  form-control-label">Email </label>
+                            <input id="email" type="text" name="email" class="form-control" value="<%=cliente.getEmail()%>">
+                        </div>
                     </div>
                     
                       

@@ -198,5 +198,21 @@ public class ControladoraPersistencia {
         }
     }
 
+    public void borrarVenta(int id) {
+        try {
+            ventaJPA.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            ex.printStackTrace(System.out);
+        }
+    }
+
+    public void modificarVenta(Venta venta) {
+        try {
+            ventaJPA.edit(venta);
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+    }
+
     
 }

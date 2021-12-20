@@ -43,7 +43,7 @@
 
 </head>
 
-<body class="animsition">
+<body class="">
     
     <div class="page-wrapper">
         <div class="page-content--bge5">

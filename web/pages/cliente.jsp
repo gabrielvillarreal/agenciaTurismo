@@ -214,7 +214,7 @@
             </section>
             <!-- END BREADCRUMB-->
             
-    <div class="container-fluid py-4">
+    <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
@@ -225,37 +225,44 @@
             </div>
               <div class="card-body">
                   <form action="../SvCliente" method="POST" >
-                    <div class="form-group">
-                      <label for="nombre" class="pr-1  form-control-label">Nombre </label>
-                      <input type="text" id="nombre" name="nombre" class="form-control">
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="nombre" class="pr-1  form-control-label">Nombre </label>
+                            <input type="text" id="nombre" name="nombre" class="form-control">
+                          </div>
+                          <div class="form-group col-md-6 ">
+                            <label for="apellido" class="pr-1  form-control-label">Apellido </label>
+                            <input type="text" id="apellido" name="apellido" class="form-control">
+                          </div>
                     </div>
-                    <div class="form-group">
-                      <label for="apellido" class="pr-1  form-control-label">Apellido </label>
-                      <input type="text" id="apellido" name="apellido" class="form-control">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="direccion" class="pr-1  form-control-label">Direccion </label>
+                            <input type="text" id="direccion" name="direccion" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="dni" class="pr-1  form-control-label">DNI</label>
+                            <input type="text" id="dni" name="dni" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="nacionalidad" class="pr-1  form-control-label">Nacionalidad</label>
+                            <input type="text" id="nacionalidad" name="nacionalidad" class="form-control">
+                        </div>
                     </div>
-                    <div class="form-group">
-                      <label for="direccion" class="pr-1  form-control-label">Direccion </label>
-                      <input type="text" id="direccion" name="direccion" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="dni" class="pr-1  form-control-label">DNI</label>
-                      <input type="text" id="dni" name="dni" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="nacionalidad" class="pr-1  form-control-label">Nacionalidad</label>
-                      <input type="text" id="nacionalidad" name="nacionalidad" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="fecha" class="pr-1  form-control-label">fecha de Nacimiento</label>
-                      <input type="text" id="fecha" name="fecha" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="celular" class="pr-1  form-control-label">Telefono celular</label>
-                      <input type="text" id="celular" name="celular" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="email" class="pr-1  form-control-label">E-mail</label>
-                      <input type="text" id="email" name="email" class="form-control">
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="fecha" class="pr-1  form-control-label">fecha de Nacimiento</label>
+                            <input type="text" id="fecha" name="fecha" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="celular" class="pr-1  form-control-label">Telefono celular</label>
+                            <input type="text" id="celular" name="celular" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="email" class="pr-1  form-control-label">E-mail</label>
+                            <input type="text" id="email" name="email" class="form-control">
+                        </div>
                     </div>
                     
                       

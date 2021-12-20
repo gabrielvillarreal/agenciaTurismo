@@ -1,6 +1,11 @@
+Informacion sobre la base de datos:
+nombre: agenciaturismo
+user: root
+Password:"" (vacio)
+
 Supuestos:
 
-* Las ventas solo permitiran un solo medio de pago
 * para agregar servicios en paquetes, tienen que tener cargados los servicios
-* los campos no estan validados
-* No agregar dos servicios iguales o repetidos en el paquete turistico porque no estan validado
+* los campos para el alta solo estan validados para que no sean vacios
+* No agregar dos servicios iguales o repetidos en el paquete turistico porque no estan validados
+* Agregar al menos un servicio en paquete Turistico

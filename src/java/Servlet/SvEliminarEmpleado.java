@@ -60,7 +60,7 @@ public class SvEliminarEmpleado extends HttpServlet {
         HttpSession misession = request.getSession();
         String pwd = (String) misession.getAttribute("password");
         String user = (String) misession.getAttribute("usuario");
-        System.out.println("password: "+pwd + "user: " + user);
+        
         
         control.borrarEmpleado(id);
         

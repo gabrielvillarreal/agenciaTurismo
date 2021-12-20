@@ -288,6 +288,36 @@ public class Controladora {
         controlPersistencia.borrarUsuario(idUsuario);
     }
 
+    public void borrarVenta(int id) {
+        controlPersistencia.borrarVenta(id);
+        
+    }
+
+    public Venta buscarVenta(int id) {
+        return controlPersistencia.buscarVenta(id);
+        
+    }
+
+    public void modificarVenta(int idVenta, String idServicio, String idPaquete, String servOPaq, String idCliente, String idEmpleado, String medioPago, Date dateF) {
+        Venta venta = controlPersistencia.buscarVenta(idVenta);
+        
+        venta.setCliente(controlPersistencia.buscarCliente(Integer.parseInt(idCliente)));
+        venta.setEmpleado(controlPersistencia.buscarEmpleado(Integer.parseInt(idEmpleado)));
+        venta.setFecha_venta(dateF);
+        venta.setMedioPago(medioPago);
+        if(servOPaq.equals("servicio")){
+           venta.setPaqueteTuristico(null);
+           venta.setServicio(controlPersistencia.buscarServicios(Integer.parseInt(idServicio)));
+        }else{
+            venta.setServicio(null);
+            venta.setPaqueteTuristico(controlPersistencia.buscarPaquete(Integer.parseInt(idPaquete)));
+        }
+        
+        controlPersistencia.modificarVenta(venta);
+        
+    }
+
+    
     
    
 }

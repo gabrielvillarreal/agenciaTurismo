@@ -50,7 +50,7 @@
             response.sendRedirect("./pages/sign-in.jsp");
         }else{
     %>
-    <div class="page-wrapper">
+    <div class="">
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar2">
             <div class="logo">
@@ -109,28 +109,7 @@
         <!-- PAGE CONTAINER-->
         <div class="page-container2">
             <!-- HEADER DESKTOP-->
-            <header class="header-desktop2">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap2">
-                            <div class="logo d-block d-lg-none">
-                                <a href="#">
-                                    <img src="images/dreamTravel.png" style="height:50px"  alt="Dream Travel" />
-                                </a>
-                            </div>
-                            <div class="header-button2">
-                                
-                                <div class="header-button-item has-noti js-item-menu">
-                                    
-                                <div class="header-button-item mr-0 js-sidebar-btn">
-                                    <i class="zmdi zmdi-menu"></i>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            
             <aside class="menu-sidebar2 js-right-sidebar d-block d-lg-none">
                 <div class="logo">
                     <a href="#">
@@ -184,10 +163,10 @@
 
            
             
-            <div class="main-content">
-                <div class="section__content section__content--p30">
+            <div class="mt-3">
+                <div class="section__content">
                     <div class="container-fluid">
-                        <div class="au-card"   style="background-image:url('images/java.jpg'); height: 800px;">
+                        <div class="au-card"   style="background-image:url('images/java.jpg'); height: 790px;">
                         </div>
                     </div>
                 </div>
@@ -195,13 +174,15 @@
 
              
             <section>
-                <div class="container-fluid">
+                <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright © <script>
-                  document.write(new Date().getFullYear())
-                </script> Cesar Gabriel Villarreal. All rights reserved. </p>
+                                <p>Copyright © 
+                                    <script>
+                                        document.write(new Date().getFullYear())
+                                    </script> Cesar Gabriel Villarreal. All rights reserved. 
+                                </p>
                             </div>
                         </div>
                     </div>
