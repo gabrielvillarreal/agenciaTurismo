@@ -74,7 +74,7 @@
                         </div>
                         <h4 class="name"><%=usuario%></h4>
                         <form action="../SvUsuario" method="get">
-                            <button class="btn-sm btn-info" type="submit">Cerrar Sesion</button>
+                            <button class="btn-sm btn-info" type="submit"><i class="zmdi zmdi-power"></i> Cerrar Sesion</button>
                         </form>
                     </div>
                     <nav class="navbar-sidebar2">
@@ -153,7 +153,7 @@
                             </div>
                             <h4 class="name"><%=usuario%></h4>
                             <form action="../SvUsuario" method="get">
-                                <button class="btn-sm btn-info" type="submit">Cerrar Sesion</button>
+                                <button class="btn-sm btn-info" type="submit"><i class="zmdi zmdi-power"></i> Cerrar Sesion</button>
                             </form>
                             
                         </div>
