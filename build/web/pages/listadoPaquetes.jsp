@@ -276,7 +276,7 @@
                                                             <div class="pr-3"></div>    
                                                             <form name="frmEditarPaquete" action="../SvModificarPaquete" method="POST" style="display:inline">
                                                                 <input type="hidden" id="<%=id%>" name="id" value="<%=id%>" >
-                                                                <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title data-original-title="Editar"><i class="zmdi zmdi-edit"></i></button>
+                                                                <button type="submit"  class="item" data-toggle="tooltip" data-placement="top" title data-original-title="Editar"><i class="zmdi zmdi-edit"></i></button>
                                                             </form>
                                                         </div>
 

@@ -266,11 +266,11 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <form name="modificarPaquete" action="../SvModificarPaquete" method="post" style="display:inline" class="text-center">  
+                                        <form name="modificarPaquete" action="../SvModificarPaquete" method="get" style="display:inline" class="text-center">  
 
 
                                             <div >
-                                                <table id="transactionTable" class="transactionTable">
+                                                <table id="transactionTable" class="table table-hover">
                                                     <thead>
                                                         <tr class="encabezado">
                                                             <th scope="col">Codigo</th>
@@ -316,7 +316,7 @@
                                                     </tbody>
                                                 </table>
                                                 <div class="row align-self-end">
-                                                    <input type="hidden" id="idPaquete" name="idPaquete" class="form-control">
+                                                    <input type="hidden" id="id" name="id" class="form-control" value="<%=idPaquete%>">
 
                                                     <span class=" h2 m-3" >Costo Total: </span>
 
@@ -469,14 +469,17 @@
             function agregarServicio() {
                 let materiales = [];
 
-                document.querySelectorAll('.transactionTable tbody tr').forEach(function (e) {
+                document.querySelectorAll('#transactionTable tbody tr').forEach(function (e) {
                     let fila = {
                         codigo: e.querySelector('.codigo').innerText
 
                     };
                     materiales.push(fila);
                 });
-                console.log("mtareiales:" + materiales);
+                console.log("materiales:" + materiales);
+                 $('#idServicio').val(materiales);
+                 alert(materiales);
+                 event.preventDefault();
             }
         </script>
 

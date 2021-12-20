@@ -230,11 +230,17 @@ public class Controladora {
         return controlPersistencia.buscarPaquete(id);
     }
 
-    public void modificarPaquete(int id, String costoPaquete) {
-        PaqueteTuristico paq = controlPersistencia.buscarPaquete(id);
+    public void modificarPaquete(int id, String costoPaquete, List<Servicio> idServicio) {
         
+        PaqueteTuristico paquete = controlPersistencia.buscarPaquete(id);
         
-        Servicio sv = controlPersistencia.buscarServicios(id);
+        Double costo = Double.parseDouble(costoPaquete);
+        paquete.setCosto_paquete(costo);
+        
+        paquete.setListaServicios(idServicio);
+        
+        controlPersistencia.modificarPaquete(paquete);
+        
         
     }
 

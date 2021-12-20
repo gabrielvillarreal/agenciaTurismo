@@ -10,6 +10,7 @@ import Logica.PaqueteTuristico;
 import Logica.Servicio;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 
 /**
  *
@@ -42,9 +44,34 @@ public class SvModificarPaquete extends HttpServlet {
          int id= Integer.parseInt(request.getParameter("id"));
         //traigo los datos del JSP
         
-        String costoPaquete = request.getParameter("costoPaquete");
+        String costoPaquete = request.getParameter("totalServicios");
         
-        control.modificarPaquete(id, costoPaquete);
+        
+         PaqueteTuristico paquete = control.buscarPaquete(id);
+         
+//         for(Servicio s : paquete.getListaServicios()){
+//            control.borrarServicio(s.getCodigo_servicio());
+//         }
+         
+         String idServicio = request.getParameter("idServicio");
+         String [] idS = idServicio.split(",");
+         List<Servicio> servicio = new ArrayList<>();
+         Double costoT = 0.0;
+         
+         
+         for( int i=0; i < idS.length; i++){
+         
+             int sv = Integer.parseInt(idS[i]);
+             Servicio unServicio = control.buscarServicio(sv);
+             servicio.add(unServicio);
+             costoT = costoT + unServicio.getCosto_servicio();
+         }
+         
+        
+         
+        control.modificarPaquete(id, costoPaquete, servicio);
+        
+        
         
         request.getSession().setAttribute("listaPaquetes", control.buscarPaquetes());
         
@@ -58,7 +85,24 @@ public class SvModificarPaquete extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-         int id = Integer.parseInt(request.getParameter("id"));
+//         int id = Integer.parseInt(request.getParameter("id"));
+//         PaqueteTuristico paquete = control.buscarPaquete(id);
+//         
+//         for(Servicio s : paquete.getListaServicios()){
+//            control.borrarServicio(s.getCodigo_servicio());
+//         }
+//         
+//         String[] idServicio = request.getParameterValues("idServicio");
+//         List<Servicio> servicio = new ArrayList<>();
+//         Double costoPaquete = 0.0;
+//         for (String ids : idServicio){
+//             int codServicio = Integer.parseInt(ids);
+//             Servicio unServicio = control.buscarServicio(codServicio);
+//             servicio.add(unServicio);
+//             costoPaquete = costoPaquete + unServicio.getCosto_servicio();
+//         }
+         
+        int id = Integer.parseInt(request.getParameter("id"));
          String nombre= request.getParameter("nombreSv");
          String descipcion= request.getParameter("descripcionSv");
          String costo = request.getParameter("costoSv");
@@ -68,6 +112,7 @@ public class SvModificarPaquete extends HttpServlet {
         
         HttpSession misession = request.getSession();
         misession.setAttribute("paquete", paquete);
+        
         response.sendRedirect("./pages/modificarPaquete.jsp");
     }
 
