@@ -346,7 +346,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <p>Copyright © <script>
+                                    <p>Copyright Â© <script>
                                         document.write(new Date().getFullYear())
                                         </script> Cesar Gabriel Villarreal. All rights reserved. </p>
                                 </div>
@@ -432,7 +432,7 @@
             }
 
             function calcularTotal(borrar) {
-                //Ejecuto la función al cargar la página
+                //Ejecuto la funciÃ³n al cargar la pÃ¡gina
                 $(document).ready(function ()
                 {
                     //Defino los totales de mis 2 columnas en 0
