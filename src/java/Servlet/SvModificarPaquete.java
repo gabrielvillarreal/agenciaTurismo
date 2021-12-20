@@ -49,10 +49,6 @@ public class SvModificarPaquete extends HttpServlet {
         
          PaqueteTuristico paquete = control.buscarPaquete(id);
          
-//         for(Servicio s : paquete.getListaServicios()){
-//            control.borrarServicio(s.getCodigo_servicio());
-//         }
-         
          String idServicio = request.getParameter("idServicio");
          String [] idS = idServicio.split(",");
          List<Servicio> servicio = new ArrayList<>();
@@ -66,16 +62,8 @@ public class SvModificarPaquete extends HttpServlet {
              servicio.add(unServicio);
              costoT = costoT + unServicio.getCosto_servicio();
          }
-         
-        
-         
         control.modificarPaquete(id, costoPaquete, servicio);
-        
-        
-        
         request.getSession().setAttribute("listaPaquetes", control.buscarPaquetes());
-        
-        
         response.sendRedirect("./pages/listadoPaquetes.jsp");
     }
 
@@ -85,22 +73,6 @@ public class SvModificarPaquete extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-//         int id = Integer.parseInt(request.getParameter("id"));
-//         PaqueteTuristico paquete = control.buscarPaquete(id);
-//         
-//         for(Servicio s : paquete.getListaServicios()){
-//            control.borrarServicio(s.getCodigo_servicio());
-//         }
-//         
-//         String[] idServicio = request.getParameterValues("idServicio");
-//         List<Servicio> servicio = new ArrayList<>();
-//         Double costoPaquete = 0.0;
-//         for (String ids : idServicio){
-//             int codServicio = Integer.parseInt(ids);
-//             Servicio unServicio = control.buscarServicio(codServicio);
-//             servicio.add(unServicio);
-//             costoPaquete = costoPaquete + unServicio.getCosto_servicio();
-//         }
          
         int id = Integer.parseInt(request.getParameter("id"));
          String nombre= request.getParameter("nombreSv");
