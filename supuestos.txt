@@ -1,7 +1,11 @@
 Informacion sobre la base de datos:
+
 nombre: agenciaturismo
+
 user: root
 Password:"" (vacio)
+
+Se adjunta agenciaturismo.sql donde contendran datos ya precargados para llenar la base de datos
 
 Supuestos:
 
@@ -9,3 +13,7 @@ Supuestos:
 * los campos para el alta solo estan validados para que no sean vacios
 * No agregar dos servicios iguales o repetidos en el paquete turistico porque no estan validados
 * Agregar al menos un servicio en paquete Turistico
+* Las validaciones de las fechas para ingresar una fecha anterior a la actual para fecha de nacimiento no esta hecha
+* Validar las fechas de venta que sea solo la actual lo pense, pero di libertad de elegir las fecha, para cargar algunas que hayan hecho ventas, pero no se cargo en el sistema y se cargaron en otro dia, o algunas ventas que tienen reservas, pero que aun no se confirmo, por lo que se cargo en ventas, pero puede modificarlo cuando confirme o eliminar si cancela la reserva. Hice esto como para justificar la modificacion o eliminacion de ventas.
+
+

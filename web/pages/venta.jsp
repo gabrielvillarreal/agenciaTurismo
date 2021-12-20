@@ -362,7 +362,7 @@
                                 
                                  <div>
                                      
-                                     <button type="submit" class="btn btn-primary ">Aceptar</button>
+                                     <button type="submit" class="btn btn-primary " onclick="validar()">Aceptar</button>
                                 </div>
                       </form>
                                
@@ -437,6 +437,14 @@
           
         }
         
+      }
+      function validar(){
+        var fecha = document.getElementById("fechaVenta").value;
+
+        if( fecha ==""){
+            alert("Ingrese una fecha para completar la venta");
+            event.preventDefault();
+        }
       }
   </script>
  <%}%>
